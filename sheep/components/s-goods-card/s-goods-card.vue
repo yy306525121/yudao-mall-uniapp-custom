@@ -138,6 +138,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 商品卡片
    */
@@ -178,6 +180,10 @@
 
   // 购买按钮样式
   const buyStyle = computed(() => {
+    if (salesDesign.value && btnBuy.type === 'text') return {
+      background: 'linear-gradient(90deg, #0D64F5, #0B56D3)', color: '#FFFFFF',
+      borderRadius: '1000rpx', minHeight: '48rpx', fontSize: '24rpx',
+    };
     if (btnBuy.type === 'text') {
       // 文字按钮：线性渐变背景颜色
       return {

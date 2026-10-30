@@ -75,7 +75,7 @@
             </view>
           </view>
           <!-- 价格+标题 -->
-          <view class="title-card detail-card ss-p-y-30 ss-p-x-20">
+          <view class="title-card detail-card ss-p-y-30 sales-inset">
             <!-- 没有限时折扣/会员价的优惠信息时，展示的价格信息 -->
             <view
               class="ss-flex ss-row-between ss-col-center ss-m-b-26"
@@ -431,7 +431,7 @@
   .detail-card {
     background-color: #ffff;
     margin: 14rpx 20rpx;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     overflow: hidden;
   }
 
@@ -441,7 +441,7 @@
       .price-text {
         font-size: 42rpx;
         font-weight: 500;
-        color: #ff3000;
+        color: #F94242;
         line-height: 30rpx;
         font-family: OPPOSANS;
 
@@ -455,7 +455,7 @@
         font-size: 26rpx;
         font-weight: 400;
         text-decoration: line-through;
-        color: $gray-c;
+        color: #BBBBBB;
         font-family: OPPOSANS;
 
         &::before {
@@ -467,7 +467,7 @@
     .sales-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: #BBBBBB;
     }
 
     .discounts-box {
@@ -516,7 +516,7 @@
     .subtitle-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: #929292;
       line-height: 42rpx;
     }
   }
@@ -548,7 +548,7 @@
       width: 428rpx;
       height: 72rpx;
       border-radius: 40rpx;
-      background: #999999;
+      background: #929292;
       color: $white;
     }
   }
@@ -563,13 +563,13 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
     }
   }
 
@@ -640,7 +640,7 @@
     text-align: center;
     font-weight: bold;
     background-color: white;
-    color: #ff3000;
+    color: #F94242;
     font-size: 23rpx;
     border-radius: 20rpx;
     margin-left: 10rpx;
@@ -669,4 +669,18 @@
     display: flex;
     justify-content: flex-end;
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .detail-card { margin: 24rpx 32rpx; border-radius: 16rpx; }
+  .title-card {
+    padding: 24rpx; box-sizing: border-box;
+    .price-box .price-text { font-size: 40rpx; line-height: 60rpx; font-weight: 600; }
+    .title-text { font-size: 32rpx; line-height: 48rpx; color: #0F0F0F; }
+  }
+  .buy-box {
+    display: flex; gap: 16rpx; min-width: 0;
+    .add-btn { @include sales-secondary(84rpx, 28rpx); width: 194rpx; min-width: 0; }
+    .buy-btn { @include sales-primary(84rpx, 28rpx); width: 194rpx; min-width: 0; }
+    .disabled-btn { @include sales-primary; width: 404rpx; background: #E5E5E5; color: #929292; }
+  }
+
 </style>

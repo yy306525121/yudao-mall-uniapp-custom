@@ -1,7 +1,7 @@
 <template>
   <!-- 规格弹窗 -->
   <su-popup :show="authType !== ''" round="10" :showClose="true" @close="closeAuthModal">
-    <view class="login-wrap">
+    <view :class="{ 'sales-design': salesDesign }" class="login-wrap">
       <!-- 1. 账号密码登录 accountLogin -->
       <account-login
         v-if="authType === 'accountLogin'"
@@ -118,7 +118,7 @@
             <view class="radio ss-flex ss-col-center" @tap="onRefuse">
               <radio
                 :checked="state.protocol === false"
-                color="#ff4d4f"
+                :color="salesDesign ? '#F94242' : '#ff4d4f'"
                 style="transform: scale(0.8)"
                 @tap.stop="onRefuse"
               />
@@ -138,6 +138,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import { computed, reactive, ref } from 'vue';
   import sheep from '@/sheep';
   import accountLogin from './components/account-login.vue';
@@ -309,5 +311,15 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+  }
+
+  .login-wrap.sales-design { padding: 48rpx 32rpx 32rpx; border-radius: 30rpx 30rpx 0 0; max-height: 80vh; overflow-y: auto; box-sizing: border-box; }
+  .login-wrap.sales-design {
+    .agreement-box, .agreement-options-container { width: 100%; min-width: 0; box-sizing: border-box; }
+    .agreement-title { padding-left: 0; box-sizing: border-box; font-size: 26rpx; line-height: 40rpx; }
+    .agreement-options-container { padding-left: 0; }
+    .agreement-option .radio { width: 100%; align-items: flex-start; }
+    .agreement-option radio { flex-shrink: 0; }
+    .agreement-text.ss-flex { flex: 1; min-width: 0; flex-wrap: wrap; font-size: 24rpx; line-height: 36rpx; }
   }
 </style>

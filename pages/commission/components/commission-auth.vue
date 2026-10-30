@@ -70,13 +70,13 @@
     .notice-title {
       font-size: 35rpx;
       font-weight: bold;
-      color: #333;
+      color: #0F0F0F;
       margin-bottom: 28rpx;
     }
     .notice-detail {
       font-size: 28rpx;
       font-weight: 400;
-      color: #999999;
+      color: #929292;
       line-height: 36rpx;
       margin-bottom: 50rpx;
     }
@@ -98,4 +98,11 @@
       background: none;
     }
   }
+
+  // New Era V2.0 page presentation.
+.notice-box .notice-btn { @include sales-primary; max-width: 100%; }
+
+  .notice-box { width: 620rpx; max-width: calc(100vw - 64rpx); min-height: 0; padding: 32rpx; box-sizing: border-box; border-radius: 16rpx; }
+  .notice-box .notice-btn, .notice-box .back-btn { width: 100%; }
+
 </style>

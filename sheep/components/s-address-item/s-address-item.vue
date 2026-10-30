@@ -2,7 +2,7 @@
 <template>
   <view
     class="address-item ss-flex ss-row-between ss-col-center"
-    :class="[{ 'border-bottom': props.hasBorderBottom }]"
+    :class="[salesDesign ? 'sales-design' : '', { 'border-bottom': props.hasBorderBottom }]"
   >
     <view class="item-left" v-if="!isEmpty(props.item)">
       <view class="area-text ss-flex ss-col-center">
@@ -34,6 +34,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 基础组件 - 地址卡片
    *
@@ -106,5 +108,13 @@
   image {
     width: 100%;
     height: 100%;
+  }
+
+  .address-item.sales-design {
+    @include sales-card; margin: 24rpx 32rpx;
+    .item-left { width: auto; flex: 1; min-width: 0; margin-right: 24rpx; }
+    .address-text { color: #0F0F0F; font-size: 32rpx; line-height: 48rpx; }
+    .area-text, .person-text { color: #929292; line-height: 42rpx; }
+    .edit-btn { flex-shrink: 0; }
   }
 </style>

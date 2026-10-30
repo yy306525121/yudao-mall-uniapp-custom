@@ -1,5 +1,5 @@
 <template>
-  <s-layout :bgStyle="{ color: '#FFF' }" title="选择自提门店">
+  <s-layout class="sales-page" :bgStyle="{ color: '#FFF' }" title="选择自提门店">
     <view class="storeBox" ref="container">
       <view
         class="storeBox-box"
@@ -211,7 +211,7 @@
     align-items: center;
     padding: 23rpx 0;
     justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #E5E5E5;
   }
 
   .store-cent {
@@ -239,14 +239,14 @@
   }
 
   .store-name {
-    color: #282828;
+    color: #0F0F0F;
     font-size: 30rpx;
     margin-bottom: 22rpx;
     font-weight: 800;
   }
 
   .store-address {
-    color: #666666;
+    color: #464646;
     font-size: 24rpx;
   }
 
@@ -279,4 +279,18 @@
     //align-items: flex-end;
     //width: 33.5%;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .storeBox { padding: 24rpx 32rpx; box-sizing: border-box; }
+  .storeBox-box { @include sales-card; margin-bottom: 24rpx; }
+  .store-cent-left { min-width: 0; flex: 1; }
+  .store-name { color: #0F0F0F; font-size: 32rpx; line-height: 48rpx; }
+  .store-address { color: #929292; line-height: 40rpx; }
+
 </style>

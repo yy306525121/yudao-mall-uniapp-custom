@@ -1,6 +1,6 @@
 <!-- 指定满减送的活动列表 -->
 <template>
-  <s-layout class="activity-wrap" :title="state.activityInfo.title">
+  <s-layout class="sales-page activity-wrap" :title="state.activityInfo.title">
     <!-- 活动信息 -->
     <su-sticky bgColor="#fff">
       <view class="ss-flex ss-col-top tip-box">
@@ -16,7 +16,7 @@
     </su-sticky>
 
     <!-- 商品信息 -->
-    <view class="ss-flex ss-flex-wrap ss-p-x-20 ss-m-t-20 ss-col-top">
+    <view class="ss-flex ss-flex-wrap sales-inset ss-m-t-20 ss-col-top">
       <view class="goods-list-box">
         <view class="left-list" v-for="item in state.leftGoodsList" :key="item.id">
           <s-goods-column
@@ -201,14 +201,25 @@
     .type-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: #FD8211;
       line-height: 42rpx;
     }
     .tip-content {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: #FD8211;
       line-height: 42rpx;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .goods-list-box { min-width: 0; box-sizing: border-box; }
+  .goods-list-box .left-list { margin-right: 12rpx; margin-bottom: 24rpx; }
+  .goods-list-box .right-list { margin-left: 12rpx; margin-bottom: 24rpx; }
+
 </style>

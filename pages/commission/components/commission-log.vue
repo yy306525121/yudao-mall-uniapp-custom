@@ -98,7 +98,7 @@
     width: 690rpx;
     margin: 0 auto;
     margin-bottom: 20rpx;
-    border-radius: 12rpx;
+    border-radius: 16rpx;
     z-index: 3;
     position: relative;
 
@@ -149,7 +149,7 @@
           font-size: 24rpx;
           font-family: OPPOSANS;
           font-weight: 400;
-          color: #c4c4c4;
+          color: #BBBBBB;
         }
       }
 
@@ -173,9 +173,18 @@
           max-width: 480rpx;
           font-size: 24rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
         }
       }
     }
   }
+
+  .distribution-log-wrap { width: auto; margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; background: #FFFFFF;
+    .header-box { width: 100%; height: 88rpx; background: #E9F0FF; }
+    .header-box .header-bg { display: none; }
+    .header-box .header-title { left: 24rpx; top: 20rpx; }
+    .header-box .title, .header-box .cicon-forward { color: #0B56D3; font-size: 32rpx; line-height: 48rpx; }
+    .menu-list, .log-scroll { background: #FFFFFF; padding: 24rpx; }
+  }
+
 </style>

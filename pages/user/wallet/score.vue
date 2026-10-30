@@ -1,6 +1,6 @@
 <!-- 我的积分 -->
 <template>
-  <s-layout class="wallet-wrap" title="我的积分" navbar="inner">
+  <s-layout class="sales-page wallet-wrap" title="我的积分" navbar="inner">
     <view
       class="header-box ss-flex ss-flex-col ss-row-center ss-col-center"
       :style="[
@@ -217,12 +217,12 @@
   // 筛选
   .filter-box {
     height: 114rpx;
-    background-color: $bg-page;
+    background-color: #F1F3F6;
 
     .total-box {
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: #929292;
     }
 
     .date-btn {
@@ -232,11 +232,11 @@
       padding: 0 20rpx;
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: #464646;
 
       .ss-seldate-icon {
         font-size: 50rpx;
-        color: $dark-9;
+        color: #929292;
       }
     }
   }
@@ -244,14 +244,14 @@
   .list-box {
     .list-item {
       background: #fff;
-      border-bottom: 1rpx solid #dfdfdf;
+      border-bottom: 1rpx solid #E5E5E5;
       padding: 30rpx;
 
       .name {
         font-size: 28rpx;
 
         font-weight: 500;
-        color: rgba(102, 102, 102, 1);
+        color: #464646;
         line-height: 28rpx;
         margin-bottom: 20rpx;
       }
@@ -275,8 +275,21 @@
         font-size: 30rpx;
 
         font-weight: 500;
-        color: $dark-3;
+        color: #0F0F0F;
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .filter-box { padding: 16rpx 32rpx; box-sizing: border-box; }
+  .list-box .list-item { margin: 24rpx 32rpx; border-radius: 16rpx; padding: 24rpx; }
+  .list-box .list-item .name { line-height: 42rpx; }
+  .list-box .list-item .time { line-height: 36rpx; color: #929292; }
+  .list-box .list-item .add { color: #0B56D3; }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 拼团活动列表 -->
 <template>
-  <s-layout :bgStyle="{ color: '#FE832A' }" navbar="inner">
+  <s-layout class="sales-page" :bgStyle="{ color: '#FE832A' }" navbar="inner">
     <view class="page-bg" :style="[{ marginTop: '-' + Number(statusBarHeight + 88) + 'rpx' }]" />
     <view class="list-content">
       <!-- 参团会员统计 -->
@@ -132,7 +132,7 @@
       width: 100%;
       border-radius: 20rpx 20rpx 0 0;
       height: 100rpx;
-      background: linear-gradient(180deg, #fff4f7, #ffe4d1);
+      background: linear-gradient(180deg, #F8FBFF, #ffe4d1);
       .content-header-title {
         width: 100%;
         font-size: 30rpx;
@@ -146,7 +146,7 @@
           top: 0;
           font-size: 24rpx;
           font-weight: 400;
-          color: #999999;
+          color: #929292;
           line-height: 30rpx;
         }
 
@@ -168,7 +168,7 @@
           background-size: cover;
           background-position: 0 0;
           margin-right: -10rpx;
-          box-shadow: 0 0 0 1px #fe832a;
+          box-shadow: 0 0 0 1px #0D64F5;
         }
 
         .pic_count {
@@ -177,7 +177,7 @@
           font-weight: 500;
           width: auto;
           height: auto;
-          background: linear-gradient(90deg, #ff6600 0%, #fe832a 100%);
+          background: linear-gradient(90deg, #0B56D3 0%, #0D64F5 100%);
           color: #ffffff;
           border-radius: 19rpx;
           padding: 4rpx 14rpx;
@@ -217,9 +217,27 @@
           border-radius: 25rpx;
           font-size: 24rpx;
           color: #fff;
-          background: linear-gradient(90deg, #ff6600 0%, #fe832a 100%);
+          background: linear-gradient(90deg, #0B56D3 0%, #0D64F5 100%);
         }
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.goods-box .cart-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  .page-bg { background: linear-gradient(180deg, #0B56D3, #E9F0FF); }
+  .list-content { margin-left: 32rpx; margin-right: 32rpx; border-radius: 30rpx 30rpx 0 0; }
+  .content-header { background: #E9F0FF; }
+  .list-content .content-header .content-header-box { width: calc(100% - 48rpx); border-radius: 1000rpx; }
+  .list-content .countdown-h, .list-content .countdown-num { background: #FFFFFF; color: #0B56D3; border-radius: 8rpx; }
+  .goods-box { box-sizing: border-box; padding-left: 24rpx; padding-right: 24rpx; }
+  .disabled { background: #E5E5E5; color: #929292; }
+
 </style>

@@ -640,12 +640,12 @@
 
   .file-title {
     font-size: 14px;
-    color: #333;
+    color: #0F0F0F;
   }
 
   .file-count {
     font-size: 14px;
-    color: #999;
+    color: #929292;
   }
 
   .is-add {

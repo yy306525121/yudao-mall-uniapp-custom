@@ -1,6 +1,6 @@
 <template>
   <s-layout
-    class="chat-wrap"
+    class="sales-page chat-wrap"
     :title="!isReconnecting ? '连接客服成功' : '会话重连中'"
     navbar="inner"
   >
@@ -219,4 +219,10 @@
       color: var(--ui-BG-Main);
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
 </style>

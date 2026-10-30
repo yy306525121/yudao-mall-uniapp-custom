@@ -1,6 +1,6 @@
 <!-- 佣金排行榜 -->
 <template>
-  <s-layout title="佣金排行榜">
+  <s-layout class="sales-page" title="佣金排行榜">
     <view class="commission-rank">
       <view class="header">
         <view class="rank" v-if="state.position">
@@ -169,7 +169,7 @@
     .wrapper {
       width: 710rpx;
       background-color: #fff;
-      border-radius: 14rpx;
+      border-radius: 16rpx;
       margin: -76rpx auto 0 auto;
 
       .nav {
@@ -177,7 +177,7 @@
         border-bottom: 2.5rpx solid #f3f3f3;
         font-size: 30rpx;
         font-weight: bold;
-        color: #999;
+        color: #929292;
         line-height: 99rpx;
 
         .item.font-color {
@@ -199,7 +199,7 @@
           font-size: 28rpx;
 
           .num {
-            color: #666;
+            color: #464646;
             flex: 0.08;
             display: flex;
             justify-content: flex-start;
@@ -224,7 +224,7 @@
           }
 
           .text {
-            color: #333;
+            color: #0F0F0F;
             flex: 0.5;
           }
 
@@ -236,4 +236,14 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .nav .item.active, .nav .item.font-color { color: #0B56D3; }
+  .other-list, .wrapper { margin-left: 32rpx; margin-right: 32rpx; border-radius: 16rpx; }
+
 </style>

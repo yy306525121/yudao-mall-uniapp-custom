@@ -5,8 +5,8 @@
       :fixed="true"
       :placeholder="true"
       :safeAreaInsetBottom="true"
-      :inactiveColor="tabbar.style.color"
-      :activeColor="tabbar.style.activeColor"
+      :inactiveColor="salesDesign ? '#929292' : tabbar.style.color"
+      :activeColor="salesDesign ? '#0B56D3' : tabbar.style.activeColor"
       :midTabBar="tabbar.mode === 2"
       :customStyle="tabbarStyle"
     >
@@ -23,10 +23,12 @@
         @click="sheep.$router.go(item.url)"
       >
         <template v-slot:active-icon>
-          <image class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.activeIconUrl)"></image>
+          <text v-if="salesDesign && salesTabIcon(item.url)" :class="salesTabIcon(item.url)" style="font-size: 48rpx; color: #0B56D3" />
+          <image v-else class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.activeIconUrl)"></image>
         </template>
         <template v-slot:inactive-icon>
-          <image class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.iconUrl)"></image>
+          <text v-if="salesDesign && salesTabIcon(item.url)" :class="salesTabIcon(item.url)" style="font-size: 48rpx; color: #929292" />
+          <image v-else class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.iconUrl)"></image>
         </template>
       </su-tabbar-item>
     </su-tabbar>
@@ -34,15 +36,22 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import { computed, unref } from 'vue';
   import sheep from '@/sheep';
   import SuTabbar from '@/sheep/ui/su-tabbar/su-tabbar.vue';
 
+  const salesTabIcon = (url) => ({
+    '/pages/index/index': 'cicon-home-o', '/pages/index/category': 'cicon-sort',
+    '/pages/index/cart': 'cicon-cart-o', '/pages/index/user': 'cicon-my-o',
+  }[url?.split('?')[0]]);
   const tabbar = computed(() => {
     return sheep.$store('app').template.basic?.tabbar;
   });
 
   const tabbarStyle = computed(() => {
+    if (salesDesign.value) return { background: '#FFFFFF', boxShadow: '0 -2rpx 10rpx rgba(0,0,0,.08)' };
     const backgroundStyle = tabbar.value.style;
     if (backgroundStyle.bgType === 'color') {
       return { background: backgroundStyle.bgColor };

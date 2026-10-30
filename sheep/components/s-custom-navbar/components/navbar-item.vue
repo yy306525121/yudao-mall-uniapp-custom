@@ -5,7 +5,7 @@
     <view
       v-if="data.type === 'text'"
       class="nav-title inline"
-      :style="[{ color: data.textColor, width: width }]"
+      :style="[{ color: salesDesign ? '#0F0F0F' : data.textColor, width: width }]"
       @tap="sheep.$router.go(data.url)"
     >
       {{ data.text }}
@@ -37,6 +37,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import sheep from '@/sheep';
   import { computed } from 'vue';
 

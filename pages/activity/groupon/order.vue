@@ -1,6 +1,6 @@
 <!-- 我的拼团订单列表 -->
 <template>
-  <s-layout title="我的拼团">
+  <s-layout class="sales-page" title="我的拼团">
     <su-sticky bgColor="#fff">
       <su-tabs
         :list="tabMaps"
@@ -183,11 +183,11 @@
       .detail-btn {
         width: 210rpx;
         height: 66rpx;
-        border: 2rpx solid #dfdfdf;
+        border: 2rpx solid #E5E5E5;
         border-radius: 33rpx;
         font-size: 26rpx;
         font-weight: 400;
-        color: #999999;
+        color: #929292;
         margin-right: 20rpx;
       }
       .tool-btn {
@@ -197,13 +197,13 @@
         font-size: 26rpx;
         font-weight: 400;
         margin-right: 20rpx;
-        background: #f6f6f6;
+        background: #F1F3F6;
       }
 
       .invite-btn {
         width: 210rpx;
         height: 66rpx;
-        background: linear-gradient(90deg, #fe832a, #ff6600);
+        background: linear-gradient(90deg, #0D64F5, #0B56D3);
         box-shadow: 0px 8rpx 6rpx 0px rgba(255, 104, 4, 0.22);
         border-radius: 33rpx;
         color: #fff;
@@ -215,26 +215,43 @@
 
   .sales-title {
     height: 32rpx;
-    background: rgba(#ffe0e2, 0.29);
+    background: rgba(#E9F0FF, 0.29);
     border-radius: 16rpx;
     font-size: 24rpx;
     font-weight: 400;
     padding: 6rpx 20rpx;
-    color: #f7979c;
+    color: #0B56D3;
   }
 
   .num-title {
     font-size: 24rpx;
     font-weight: 400;
-    color: #999999;
+    color: #929292;
   }
   .warning-color {
-    color: #faad14;
+    color: #FD8211;
   }
   .danger-color {
-    color: #ff3000;
+    color: #F94242;
   }
   .success-color {
     color: #52c41a;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.order-card-footer .tool-btn, .order-card-footer .detail-btn { @include sales-secondary; width: auto; }
+
+  // New Era V2.0 page presentation.
+.order-card-footer .invite-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  .order-list-card-box { margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; }
+  .order-list-card-box .order-card-header { height: auto; min-height: 88rpx; padding: 16rpx 24rpx; flex-wrap: wrap; gap: 8rpx; }
+  .order-list-card-box .order-card-footer { height: auto; min-height: 100rpx; padding: 16rpx 24rpx; gap: 16rpx; flex-wrap: wrap; }
+
 </style>

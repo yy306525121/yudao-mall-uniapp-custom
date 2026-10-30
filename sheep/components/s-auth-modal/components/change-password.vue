@@ -1,6 +1,6 @@
 <!-- 修改密码（登录时）  -->
 <template>
-  <view>
+  <view :class="{ 'sales-design': salesDesign }" class="sales-auth">
     <!-- 标题栏 -->
     <view class="head-box ss-m-b-60">
       <view class="head-title ss-m-b-20">修改密码</view>
@@ -60,6 +60,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import { ref, reactive, unref } from 'vue';
   import { code, password } from '@/sheep/validate/form';
   import { closeAuthModal, getSmsCode, getSmsTimer } from '@/sheep/hooks/useModal';
@@ -103,4 +105,12 @@
 
 <style lang="scss" scoped>
   @import '../index.scss';
+
+  .sales-design {
+    .head-title { color: #0F0F0F; line-height: 54rpx; }
+    .head-subtitle { color: #929292; font-size: 26rpx; line-height: 40rpx; }
+    .login-btn-start { @include sales-primary(56rpx, 28rpx); min-width: 112rpx; }
+    .authorization-btn { @include sales-primary; width: 100%; }
+    .code-btn-start { @include sales-secondary; color: #0B56D3; border-color: #0B56D3; }
+  }
 </style>

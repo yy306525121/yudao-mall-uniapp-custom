@@ -1,6 +1,6 @@
 <!-- 秒杀商品详情 -->
 <template>
-  <s-layout :onShareAppMessage="shareInfo" navbar="goods">
+  <s-layout class="sales-page" :onShareAppMessage="shareInfo" navbar="goods">
     <!-- 标题栏 -->
     <detailNavbar />
     <!-- 骨架屏 -->
@@ -276,7 +276,7 @@
   .detail-card {
     background-color: $white;
     margin: 14rpx 20rpx;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     overflow: hidden;
   }
 
@@ -285,7 +285,7 @@
     width: 710rpx;
     box-sizing: border-box;
     background-size: 100% 100%;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     background-image: v-bind(headerBg);
     background-repeat: no-repeat;
 
@@ -297,18 +297,18 @@
       }
 
       .point-text {
-        font-size: 42rpx;
+        font-size: 40rpx;
         font-weight: 500;
-        color: #ff3000;
-        line-height: 36rpx;
+        color: #F94242;
+        line-height: 60rpx;
         font-family: OPPOSANS;
       }
 
       .price-text {
-        font-size: 42rpx;
+        font-size: 40rpx;
         font-weight: 500;
-        color: #ff3000;
-        line-height: 36rpx;
+        color: #F94242;
+        line-height: 60rpx;
         font-family: OPPOSANS;
       }
     }
@@ -317,14 +317,14 @@
       font-size: 26rpx;
       font-weight: 400;
       text-decoration: line-through;
-      color: $gray-c;
+      color: #BBBBBB;
       font-family: OPPOSANS;
     }
 
     .sales-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: #BBBBBB;
     }
 
     .discounts-box {
@@ -362,7 +362,7 @@
     .subtitle-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: #929292;
       line-height: 42rpx;
     }
   }
@@ -392,7 +392,7 @@
       background-image: v-bind(disabledBtnBg);
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      color: #999999;
+      color: #929292;
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -471,13 +471,39 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .detail-card, .title-card { margin: 24rpx 32rpx; border-radius: 16rpx; box-sizing: border-box; }
+  .title-card { padding: 24rpx; background: #FFFFFF; }
+  .title-card .title-text { color: #0F0F0F; font-size: 32rpx; line-height: 48rpx; }
+  .title-card .price-text, .title-card .point-text { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+  .title-card .countdown-title { color: #929292; }
+  .countdown-time { color: #0B56D3; }
+  .title-card .countdown-num, .title-card .countdown-h { background: #E9F0FF; color: #0B56D3; border-radius: 8rpx; }
+  .buy-box { display: flex; gap: 16rpx; min-width: 0;
+    .check-btn-box, .disabled-btn-box { @include sales-primary(84rpx, 28rpx); width: 194rpx; min-width: 0; margin-left: 0; line-height: 36rpx; }
+    .disabled-btn-box, .disabled-btn-box[disabled] { background: #E5E5E5; color: #929292; }
+    .origin-price-btn { @include sales-secondary(84rpx, 28rpx); width: 194rpx; min-width: 0; line-height: 36rpx; }
+  }
+  .activity-go { color: #0B56D3; }
+
+  .title-card .price-box .origin-price, .title-card .price-box .origin-price-text { color: #929292; }
+  .title-card .countdown-time .countdown-num, .title-card .countdown-time .countdown-h { background: #E9F0FF; color: #0B56D3; }
+  .title-card .tig { border-color: #0B56D3; }
+  .title-card .tig .tig-icon { background: #0B56D3; }
+  .title-card .tig .tig-title { color: #0B56D3; }
 </style>

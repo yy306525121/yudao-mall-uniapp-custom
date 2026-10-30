@@ -1,6 +1,6 @@
 <!-- 装修用户组件：用户订单 -->
 <template>
-  <view class="ss-order-menu-wrap ss-flex ss-col-center" :style="[style, { marginLeft: `${data.space}px` }]">
+  <view :class="{ 'sales-design': salesDesign }" class="ss-order-menu-wrap ss-flex ss-col-center" :style="[style, { marginLeft: `${data.space}px` }]">
     <view
       class="menu-item ss-flex-1 ss-flex-col ss-row-center ss-col-center"
       v-for="item in orderMap"
@@ -21,6 +21,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 装修组件 - 订单菜单组
    */
@@ -128,5 +130,10 @@
         }
       }
     }
+  }
+
+  .ss-order-menu-wrap.sales-design {
+    .menu-item { min-width: 0; }
+    .menu-title { font-size: 24rpx; line-height: 36rpx; color: #464646; margin-top: 16rpx; }
   }
 </style>

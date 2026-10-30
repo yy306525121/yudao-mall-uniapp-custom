@@ -1,6 +1,6 @@
 <!-- 售后列表 -->
 <template>
-  <s-layout title="售后列表">
+  <s-layout class="sales-page" title="售后列表">
     <!-- tab -->
     <su-sticky bgColor="#fff">
       <su-tabs
@@ -189,7 +189,7 @@
 
       .value {
         font-size: 22rpx;
-        color: $dark-6;
+        color: #464646;
       }
     }
 
@@ -199,11 +199,26 @@
       .tool-btn {
         width: 160rpx;
         height: 60rpx;
-        background: #f6f6f6;
+        background: #F1F3F6;
         border-radius: 30rpx;
         font-size: 26rpx;
         font-weight: 400;
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.tool-btn-box .tool-btn { @include sales-secondary; width: auto; }
+
+  // New Era V2.0 page presentation.
+  .list-box { @include sales-record; }
+  .order-head { min-height: 88rpx; flex-wrap: wrap; gap: 8rpx; }
+  .tool-btn-box { padding: 16rpx 0; flex-wrap: wrap; gap: 16rpx; }
+
 </style>

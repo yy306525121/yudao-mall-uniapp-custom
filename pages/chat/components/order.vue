@@ -54,18 +54,18 @@
       .discounts-title {
         font-size: 24rpx;
         line-height: normal;
-        color: #999999;
+        color: #929292;
       }
 
       .discounts-money {
         font-size: 24rpx;
         line-height: normal;
-        color: #999;
+        color: #929292;
         font-family: OPPOSANS;
       }
 
       .pay-color {
-        color: #333;
+        color: #0F0F0F;
       }
     }
     .order-card-footer {
@@ -84,24 +84,24 @@
       }
 
       .more-btn {
-        color: $dark-9;
+        color: #929292;
         font-size: 24rpx;
       }
 
       .content {
         width: 154rpx;
-        color: #333333;
+        color: #0F0F0F;
         font-size: 26rpx;
         font-weight: 500;
       }
     }
   }
   .warning-color {
-    color: #faad14;
+    color: #FD8211;
   }
 
   .danger-color {
-    color: #ff3000;
+    color: #F94242;
   }
 
   .success-color {
@@ -109,6 +109,11 @@
   }
 
   .info-color {
-    color: #999999;
+    color: #929292;
   }
+
+  .order-list-card-box { margin: 0; border-radius: 16rpx; overflow: hidden; max-width: 100%; }
+  .order-card-header { padding: 16rpx 24rpx; flex-wrap: wrap; gap: 8rpx; }
+  .order-list-card-box .pay-box .discounts-money { color: #F94242; font-size: 28rpx; line-height: 42rpx; }
+
 </style>

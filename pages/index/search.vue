@@ -1,11 +1,12 @@
 <!-- 搜索界面 -->
 <template>
   <s-layout :bgStyle="{ color: '#FFF' }" class="set-wrap" title="搜索">
-    <view class="ss-p-x-24">
+    <view class="sales-inset">
       <view class="ss-flex ss-col-center">
         <uni-search-bar
           class="ss-flex-1"
-          radius="33"
+          radius="18"
+          bgColor="#FFFFFF"
           placeholder="请输入关键字"
           cancelButton="none"
           :focus="true"
@@ -87,7 +88,7 @@
   .serach-title {
     font-size: 30rpx;
     font-weight: 500;
-    color: #333333;
+    color: #0F0F0F;
   }
 
   .uni-searchbar {
@@ -96,24 +97,28 @@
 
   .serach-history {
     font-weight: bold;
-    color: #333333;
+    color: #0F0F0F;
     font-size: 30rpx;
   }
 
   .clean-history {
     font-weight: 500;
-    color: #999999;
+    color: #929292;
     font-size: 28rpx;
   }
 
   .history-btn {
     padding: 0 38rpx;
     height: 60rpx;
-    background: #f5f6f8;
+    background: #F1F3F6;
     border-radius: 30rpx;
     font-size: 28rpx;
-    color: #333333;
+    color: #0F0F0F;
     max-width: 690rpx;
     margin: 0 20rpx 20rpx 0;
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .serach-history { font-size: 32rpx; line-height: 48rpx; margin: 24rpx 0; }
+  .history-btn { height: 56rpx; line-height: 56rpx; padding: 0 24rpx; background: #FFFFFF; }
+
 </style>

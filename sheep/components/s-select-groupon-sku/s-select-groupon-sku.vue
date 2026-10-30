@@ -384,7 +384,7 @@
       .sku-image {
         width: 160rpx;
         height: 160rpx;
-        border-radius: 10rpx;
+        border-radius: 16rpx;
       }
 
       .header-right {
@@ -445,7 +445,7 @@
       .price-text {
         font-size: 30rpx;
         font-weight: 500;
-        color: $red;
+        color: #F94242;
         font-family: OPPOSANS;
 
         &::before {
@@ -456,7 +456,7 @@
 
       .stock-text {
         font-size: 26rpx;
-        color: #999999;
+        color: #929292;
       }
     }
 
@@ -481,7 +481,7 @@
           padding: 0 30rpx;
           background: #f4f4f4;
           border-radius: 30rpx;
-          color: #434343;
+          color: #464646;
           font-size: 26rpx;
           margin-right: 10rpx;
           margin-bottom: 10rpx;
@@ -496,7 +496,7 @@
         .disabled-btn {
           font-weight: 400;
           color: #c6c6c6;
-          background: #f8f8f8;
+          background: #F1F3F6;
         }
       }
     }
@@ -506,4 +506,27 @@
     width: 100%;
     height: 100%;
   }
+
+  .ss-modal-box { max-height: 85vh;
+    .modal-header { padding: 48rpx 32rpx 24rpx; }
+    .header-right { min-width: 0; height: auto; min-height: 160rpx; }
+    .modal-content { min-height: 0; padding: 0 32rpx; }
+    .modal-content-scroll { max-height: 45vh; }
+    .price-text, .price-text::before { color: #F94242; }
+    .modal-footer { padding: 16rpx 32rpx; }
+    .spec-btn { height: auto; min-height: 56rpx; line-height: 42rpx; padding: 8rpx 24rpx; border-radius: 1000rpx; }
+    .disabled-btn { background: #E5E5E5; color: #BBBBBB; }
+    .buy-box { display: flex; gap: 24rpx; }
+    .buy-btn, .join-btn { @include sales-primary; flex: 1; width: auto; min-width: 0; }
+    .add-btn { @include sales-secondary(84rpx, 32rpx); flex: 1; width: auto; min-width: 0; }
+  }
+
+  .ss-modal-box .modal-content .checked-btn { background: #0B56D3; color: #FFFFFF; }
+  .ss-modal-box .modal-content .checked-btn.disabled-btn { background: #E5E5E5; color: #BBBBBB; }
+  .ss-modal-box .tig { border-color: #0B56D3; }
+  .ss-modal-box .tig .tig-icon { background: #0B56D3; }
+  .ss-modal-box .tig .tig-title { color: #0B56D3; }
+  .ss-modal-box .buy-box > view { width: 100%; display: flex; gap: 24rpx; }
+  .ss-modal-box .buy-box .origin-price-btn { @include sales-secondary(84rpx, 28rpx); flex: 1; min-width: 0; width: auto; line-height: 36rpx; }
+  .ss-modal-box .buy-box .btn-tox { @include sales-primary(84rpx, 28rpx); flex: 1; min-width: 0; width: auto; margin-left: 0; line-height: 36rpx; }
 </style>

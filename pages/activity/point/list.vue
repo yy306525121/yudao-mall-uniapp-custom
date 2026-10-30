@@ -1,6 +1,6 @@
 <!-- 积分商城：商品列表  -->
 <template>
-  <s-layout title="积分商城" navbar="normal" :leftWidth="0" :rightWidth="0">
+  <s-layout class="sales-page" title="积分商城" navbar="normal" :leftWidth="0" :rightWidth="0">
     <scroll-view
       class="scroll-box"
       :style="{ height: pageHeight + 'rpx' }"
@@ -8,7 +8,7 @@
       :scroll-with-animation="false"
       :enable-back-to-top="true"
     >
-      <s-point-card ref="sPointCardRef" class="ss-p-x-20 ss-m-t-20" />
+      <s-point-card ref="sPointCardRef" class="sales-inset ss-m-t-20" />
       <s-empty
         v-if="activityTotal === 0"
         icon="/static/goods-empty.png"
@@ -74,3 +74,17 @@
     getActivityList();
   });
 </script>
+
+<style lang="scss" scoped>
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .goods-list-box { min-width: 0; box-sizing: border-box; }
+  .goods-list-box .left-list { margin-right: 12rpx; margin-bottom: 24rpx; }
+  .goods-list-box .right-list { margin-left: 12rpx; margin-bottom: 24rpx; }
+
+</style>

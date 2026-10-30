@@ -1,6 +1,6 @@
 <!-- 秒杀活动列表 -->
 <template>
-  <s-layout :bgStyle="{ color: 'rgb(245,28,19)' }" navbar="inner">
+  <s-layout class="sales-page" :bgStyle="{ color: 'rgb(245,28,19)' }" navbar="inner">
     <!--顶部背景图-->
     <view
       class="page-bg"
@@ -292,23 +292,23 @@
     width: 710rpx;
     height: 330rpx;
     margin: -276rpx auto 0 auto;
-    border-radius: 14rpx;
+    border-radius: 16rpx;
     overflow: hidden;
 
     swiper {
       height: 330rpx !important;
-      border-radius: 14rpx;
+      border-radius: 16rpx;
       overflow: hidden;
     }
 
     image {
       width: 100%;
       height: 100%;
-      border-radius: 14rpx;
+      border-radius: 16rpx;
       overflow: hidden;
 
       img {
-        border-radius: 14rpx;
+        border-radius: 16rpx;
       }
     }
   }
@@ -328,7 +328,7 @@
     .item {
       display: inline-block;
       font-size: 20rpx;
-      color: #666;
+      color: #464646;
       text-align: center;
       box-sizing: border-box;
       margin-right: 30rpx;
@@ -338,7 +338,7 @@
       .time {
         font-size: 36rpx;
         font-weight: 600;
-        color: #333;
+        color: #0F0F0F;
       }
 
       // 选中的时间段
@@ -372,7 +372,7 @@
       width: 100%;
       border-radius: 20rpx 20rpx 0 0;
       height: 150rpx;
-      background: linear-gradient(180deg, #fff4f7, #ffe6ec);
+      background: linear-gradient(180deg, #F8FBFF, #E9F0FF);
 
       .content-header-box {
         width: 678rpx;
@@ -384,14 +384,14 @@
         .countdown-title {
           font-size: 28rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
           line-height: 28rpx;
         }
 
         // 场次倒计时
         .countdown-time {
           font-size: 28rpx;
-          color: rgba(#ed3c30, 0.23);
+          color: #0B56D3;
 
           // 场次倒计时：小时部分
           .countdown-h {
@@ -401,7 +401,7 @@
             color: #ffffff;
             padding: 0 4rpx;
             height: 40rpx;
-            background: rgba(#ed3c30, 0.23);
+            background: #0B56D3;
             border-radius: 6rpx;
           }
 
@@ -413,7 +413,7 @@
             color: #ffffff;
             width: 40rpx;
             height: 40rpx;
-            background: rgba(#ed3c30, 0.23);
+            background: #0B56D3;
             border-radius: 6rpx;
           }
         }
@@ -434,16 +434,16 @@
           bottom: 10rpx;
           right: 20rpx;
           z-index: 11;
-          height: 44rpx;
-          line-height: 50rpx;
+          height: 48rpx;
+          line-height: 48rpx;
           padding: 0 20rpx;
           border-radius: 25rpx;
           font-size: 24rpx;
           color: #fff;
-          background: linear-gradient(90deg, #ff6600 0%, #fe832a 100%);
+          background: linear-gradient(90deg, #0D64F5 0%, #0B56D3 100%);
 
           &.disabled {
-            background: $gray-b;
+            background: #BBBBBB;
             color: #fff;
           }
         }
@@ -451,10 +451,33 @@
         // 秒杀限量商品数
         .limit {
           font-size: 22rpx;
-          color: $dark-9;
+          color: #929292;
           margin-bottom: 5rpx;
         }
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.goods-box .cart-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  .page-bg { background: linear-gradient(180deg, #0B56D3, #E9F0FF); }
+  .list-content { margin-left: 32rpx; margin-right: 32rpx; border-radius: 30rpx 30rpx 0 0; }
+  .content-header { background: #E9F0FF; }
+  .list-content .content-header .content-header-box { width: calc(100% - 48rpx); border-radius: 1000rpx; }
+  .list-content .countdown-h, .list-content .countdown-num { background: #FFFFFF; color: #0B56D3; border-radius: 8rpx; }
+  .goods-box { box-sizing: border-box; padding-left: 24rpx; padding-right: 24rpx; }
+  .disabled { background: #E5E5E5; color: #929292; }
+
+
+  .header { width: calc(100% - 64rpx); border-radius: 16rpx; }
+  .time-list { min-width: 0; flex: 1; width: auto; }
+  .goods-box .cart-btn.disabled { background: #E5E5E5; color: #929292; }
+
 </style>

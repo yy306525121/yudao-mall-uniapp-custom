@@ -1,5 +1,5 @@
 <template>
-  <s-layout title="推广人排行榜">
+  <s-layout class="sales-page" title="推广人排行榜">
     <view class="promoter-rank">
       <view class="nav">
         <view
@@ -157,7 +157,7 @@
         line-height: 60rpx;
 
         &.active {
-          color: #333;
+          color: #0F0F0F;
           background-color: white;
         }
       }
@@ -250,7 +250,7 @@
     padding: 0 16rpx;
 
     .item {
-      border-radius: 14rpx;
+      border-radius: 16rpx;
       margin-bottom: 12rpx;
       padding: 15rpx 20rpx;
       display: flex;
@@ -285,4 +285,14 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .nav .item.active, .nav .item.font-color { color: #0B56D3; }
+  .other-list, .wrapper { margin-left: 32rpx; margin-right: 32rpx; border-radius: 16rpx; }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-  <s-layout title="我的团队" :class="state.scrollTop ? 'team-wrap' : ''" navbar="inner">
+  <s-layout class="sales-page" title="我的团队" :class="state.scrollTop ? 'team-wrap' : ''" navbar="inner">
     <view
       class="header-box"
       :style="[
@@ -361,8 +361,8 @@
     height: 86rpx;
     line-height: 86rpx;
     font-size: 28rpx;
-    color: #282828;
-    border-bottom: 1rpx solid #eee;
+    color: #0F0F0F;
+    border-bottom: 1rpx solid #E5E5E5;
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
     display: flex;
@@ -390,7 +390,7 @@
         .item-title {
           font-size: 22rpx;
           font-weight: 500;
-          color: #999999;
+          color: #929292;
           line-height: 30rpx;
           margin-bottom: 10rpx;
         }
@@ -402,14 +402,14 @@
         .total-num {
           font-size: 38rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
           font-family: OPPOSANS;
         }
 
         .category-num {
           font-size: 26rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
           font-family: OPPOSANS;
         }
       }
@@ -425,7 +425,7 @@
     .time-text {
       font-size: 22rpx;
       font-weight: 400;
-      color: #999999;
+      color: #929292;
     }
 
     .tag-box {
@@ -470,8 +470,8 @@
     height: 86rpx;
     line-height: 86rpx;
     font-size: 28rpx;
-    color: #282828;
-    border-bottom: 1rpx solid #eee;
+    color: #0F0F0F;
+    border-bottom: 1rpx solid #E5E5E5;
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
     margin-top: -30rpx;
@@ -498,7 +498,7 @@
     width: 592rpx;
     height: 60rpx;
     border-radius: 50rpx;
-    background-color: #f5f5f5;
+    background-color: #F1F3F6;
     text-align: center;
     position: relative;
   }
@@ -511,13 +511,13 @@
   }
 
   .promoter-list .search .input .placeholder {
-    color: #bbb;
+    color: #BBBBBB;
   }
 
   .promoter-list .search .input .iconfont {
     position: absolute;
     right: 28rpx;
-    color: #999;
+    color: #929292;
     font-size: 28rpx;
     top: 50%;
     transform: translateY(-50%);
@@ -537,8 +537,8 @@
   .promoter-list .list .sortNav {
     background-color: #fff;
     height: 76rpx;
-    border-bottom: 1rpx solid #eee;
-    color: #333;
+    border-bottom: 1rpx solid #E5E5E5;
+    color: #0F0F0F;
     font-size: 28rpx;
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
@@ -558,11 +558,11 @@
 
   .promoter-list .list .item {
     background-color: #fff;
-    border-bottom: 1rpx solid #eee;
+    border-bottom: 1rpx solid #E5E5E5;
     height: 152rpx;
     padding: 0 24rpx;
     font-size: 24rpx;
-    color: #666;
+    color: #464646;
   }
 
   .promoter-list .list .item .picTxt .pictrue {
@@ -583,23 +583,47 @@
   .promoter-list .list .item .picTxt .text {
     // width: 304rpx;
     font-size: 24rpx;
-    color: #666;
+    color: #464646;
     margin-left: 14rpx;
   }
 
   .promoter-list .list .item .picTxt .text .name {
     font-size: 28rpx;
-    color: #333;
+    color: #0F0F0F;
     margin-bottom: 13rpx;
   }
 
   .promoter-list .list .item .right {
     text-align: right;
     font-size: 22rpx;
-    color: #333;
+    color: #0F0F0F;
   }
 
   .promoter-list .list .item .right .num {
     margin-right: 7rpx;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .header-box { width: 100%; padding: 24rpx 32rpx; box-sizing: border-box; background: linear-gradient(90deg, #0D64F5, #0B56D3); }
+  .header-box .team-data-box { gap: 24rpx; }
+  .header-box .team-data-box .data-card { flex: 1; min-width: 0; width: auto; padding: 24rpx; border-radius: 16rpx; box-sizing: border-box; }
+  .header-box .team-data-box .total-num { font-size: 40rpx; line-height: 60rpx; }
+  .order-box .order-item { margin: 24rpx 32rpx; border-radius: 16rpx; }
+  .direct-box { gap: 24rpx; }
+  .header-box .direct-box .direct-item { flex: 1; min-width: 0; width: auto; }
+
+
+  .promoter-list { margin: 24rpx 32rpx; }
+  .promoter-list .search { padding: 16rpx 24rpx; gap: 16rpx; }
+  .promoter-list .search .input { flex: 1; min-width: 0; width: auto; }
+  .promoter-list .search .input input { width: 100%; box-sizing: border-box; }
+  .promoter-list .list .item { min-height: 152rpx; height: auto; padding: 24rpx; gap: 16rpx; }
+  .promoter-list .list .item .picTxt { min-width: 0; flex: 1; }
+  .promoter-list .list .item .picTxt .text { min-width: 0; }
+
 </style>

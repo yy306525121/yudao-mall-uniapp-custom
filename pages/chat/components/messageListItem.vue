@@ -188,11 +188,11 @@
   .date-message,
   .system-message {
     width: fit-content;
-    border-radius: 12rpx;
+    border-radius: 16rpx;
     padding: 8rpx 16rpx;
     margin-bottom: 16rpx;
     background-color: var(--ui-BG-3);
-    color: #999;
+    color: #929292;
     font-size: 24rpx;
   }
 
@@ -203,7 +203,7 @@
   }
 
   .send-status {
-    color: #333;
+    color: #0F0F0F;
     height: 80rpx;
     margin-right: 8rpx;
     display: flex;
@@ -239,7 +239,7 @@
     .warning {
       width: 32rpx;
       height: 32rpx;
-      color: #ff3000;
+      color: #F94242;
     }
   }
 
@@ -259,7 +259,7 @@
     border-bottom-left-radius: 10px;
     &.admin {
       background: #fff;
-      color: #333;
+      color: #0F0F0F;
       margin-top: 3px;
       margin-bottom: 9px;
       border-radius: 0 10px 10px 10px;
@@ -294,4 +294,11 @@
     width: 400rpx;
     height: 400rpx;
   }
+
+  .message-item { margin-bottom: 24rpx; }
+  .message-box { max-width: 65%; padding: 24rpx; font-size: 28rpx; line-height: 42rpx; border-radius: 16rpx 0 16rpx 16rpx; background: #0B56D3; box-sizing: border-box; }
+  .message-box.admin { background: #FFFFFF; color: #464646; border-radius: 0 16rpx 16rpx 16rpx; }
+  .date-message, .system-message { background: transparent; color: #929292; font-size: 24rpx; line-height: 36rpx; }
+  .send-status .warning { color: #F94242; }
+
 </style>

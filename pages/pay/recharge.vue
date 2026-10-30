@@ -1,6 +1,6 @@
 <!-- 充值界面 -->
 <template>
-  <s-layout title="充值" class="withdraw-wrap" navbar="inner">
+  <s-layout title="充值" class="sales-page withdraw-wrap" navbar="inner">
     <view
       class="wallet-num-box ss-flex ss-col-center ss-row-between"
       :style="[
@@ -174,7 +174,7 @@
     .input-label {
       font-size: 30rpx;
       font-weight: 500;
-      color: #333;
+      color: #0F0F0F;
     }
 
     .unit {
@@ -199,7 +199,7 @@
       width: 200rpx;
       height: 144rpx;
       border: 1px solid var(--ui-BG-Main);
-      border-radius: 10rpx;
+      border-radius: 16rpx;
       position: relative;
       z-index: 1;
       margin-bottom: 15rpx;
@@ -274,4 +274,25 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.recharge-box .save-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .wallet-num-box { padding-left: 32rpx; padding-right: 32rpx; background: linear-gradient(90deg, #0D64F5, #0B56D3); }
+  .recharge-box { margin-left: 32rpx; margin-right: 32rpx; width: auto; }
+  .recharge-card-box { @include sales-card; }
+  .recharge-box .save-btn { width: 100%; }
+  .face-value-btn { box-sizing: border-box; border-radius: 16rpx; }
+
+  .recharge-box { padding: 0; }
+  .recharge-card-box { width: 100%; }
+  .recharge-card-box .face-value-btn { width: calc((100% - 32rpx) / 3); margin-right: 16rpx; min-width: 0; }
+  .recharge-card-box .face-value-btn:nth-of-type(3n) { margin-right: 0; }
 </style>

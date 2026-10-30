@@ -162,4 +162,10 @@
       margin-right: 18rpx;
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .footer-box { padding: 16rpx 32rpx; box-sizing: border-box; gap: 24rpx;
+    .add-btn { @include sales-primary; min-width: 0; }
+    .sync-wxaddress { @include sales-secondary(84rpx, 28rpx); min-width: 0; margin-right: 0; }
+  }
+
 </style>

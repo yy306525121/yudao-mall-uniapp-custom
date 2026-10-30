@@ -1,0 +1,84 @@
+// New Era V2.0, 750px design board: design pixels map to rpx.
+@mixin sales-primary($height: 84rpx, $font: 32rpx) {
+  box-sizing: border-box;
+  min-width: 160rpx;
+  height: $height;
+  padding: 0 24rpx;
+  border: 0;
+  border-radius: 1000rpx;
+  background: linear-gradient(90deg, #0d64f5, #0b56d3);
+  color: #ffffff;
+  font-size: $font;
+  font-weight: 500;
+  line-height: $height;
+  box-shadow: none;
+  &::after {
+    border: 0;
+  }
+  &[disabled],
+  &.disabled-btn {
+    background: #e5e5e5;
+    color: #929292;
+    opacity: 1;
+  }
+  &.button-hover {
+    opacity: 0.85;
+  }
+}
+@mixin sales-secondary($height: 56rpx, $font: 28rpx) {
+  @include sales-primary($height, $font);
+  min-width: 112rpx;
+  background: #ffffff;
+  color: #0f0f0f;
+  border: 1rpx solid #929292;
+}
+@mixin sales-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+@mixin sales-theme {
+  --ui-BG: #ffffff;
+  --ui-BG-1: #f1f3f6;
+  --ui-BG-2: #f8fbff;
+  --ui-BG-3: #e9f0ff;
+  --ui-TC: #464646;
+  --ui-TC-1: #0f0f0f;
+  --ui-TC-2: #929292;
+  --ui-TC-3: #bbbbbb;
+  --ui-TC-4: #bbbbbb;
+  --ui-Border: #e5e5e5;
+  --ui-Line: #e5e5e5;
+  --ui-BG-Main: #0b56d3;
+  --ui-BG-Main-gradient: #0d64f5;
+  --ui-BG-Main-light: #e9f0ff;
+  --ui-BG-Main-tag: #e9f0ff;
+  --ui-BG-Main-opacity-1: rgba(11, 86, 211, 0.1);
+  --ui-BG-Main-opacity-4: rgba(11, 86, 211, 0.4);
+  --ui-BG-Main-1: #0b56d3;
+  --ui-BG-Main-2: #649eff;
+  --ui-BG-Main-3: #e9f0ff;
+  --ui-BG-Main-4: #f8fbff;
+  --ui-Main-box-shadow: none;
+  --sales-price: #f94242;
+  color: #464646;
+  font-family: 'PingFang SC', 'Source Han Sans SC', system-ui, sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+@mixin sales-record {
+  @include sales-card;
+  margin: 24rpx 32rpx;
+  min-width: 0;
+}
+
+@mixin sales-field {
+  min-height: 88rpx;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  color: #464646;
+  box-sizing: border-box;
+}

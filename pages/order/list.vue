@@ -17,7 +17,7 @@
         :key="order.id"
         @tap="onOrderDetail(order.id)"
       >
-        <view class="order-card-header ss-flex ss-col-center ss-row-between ss-p-x-20">
+        <view class="order-card-header ss-flex ss-col-center ss-row-between sales-inset">
           <view class="order-no">订单号：{{ order.no }}</view>
           <view class="order-state ss-font-26" :class="formatOrderColor(order)">
             {{ formatOrderStatus(order) }}
@@ -41,7 +41,7 @@
           </view>
         </view>
         <view
-          class="order-card-footer ss-flex ss-col-center ss-p-x-20"
+          class="order-card-footer ss-flex ss-col-center sales-inset"
           :class="order.buttons.length > 3 ? 'ss-row-between' : 'ss-row-right'"
         >
           <view class="ss-flex ss-col-center">
@@ -376,7 +376,7 @@
   .tool-btn {
     width: 160rpx;
     height: 60rpx;
-    background: #f6f6f6;
+    background: #F1F3F6;
     font-size: 26rpx;
     border-radius: 30rpx;
     margin-right: 10rpx;
@@ -389,7 +389,7 @@
   .delete-btn {
     width: 160rpx;
     height: 56rpx;
-    color: #ff3000;
+    color: #F94242;
     background: #fee;
     border-radius: 28rpx;
     font-size: 26rpx;
@@ -437,18 +437,18 @@
       .discounts-title {
         font-size: 24rpx;
         line-height: normal;
-        color: #999999;
+        color: #929292;
       }
 
       .discounts-money {
         font-size: 24rpx;
         line-height: normal;
-        color: #999;
+        color: #929292;
         font-family: OPPOSANS;
       }
 
       .pay-color {
-        color: #333;
+        color: #0F0F0F;
       }
     }
 
@@ -468,13 +468,13 @@
       }
 
       .more-btn {
-        color: $dark-9;
+        color: #929292;
         font-size: 24rpx;
       }
 
       .content {
         width: 154rpx;
-        color: #333333;
+        color: #0F0F0F;
         font-size: 26rpx;
         font-weight: 500;
       }
@@ -490,7 +490,7 @@
   }
 
   .danger-color {
-    color: #ff3000;
+    color: #F94242;
   }
 
   .success-color {
@@ -498,6 +498,16 @@
   }
 
   .info-color {
-    color: #999999;
+    color: #929292;
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .order-list-card-box { margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; }
+  .tool-btn { @include sales-secondary; width: auto; margin-right: 16rpx; }
+  .delete-btn { @include sales-secondary; color: #F94242; border-color: #F94242; background: #FFEEEE; }
+  .apply-btn { @include sales-secondary(48rpx, 24rpx); min-width: 88rpx; width: auto; }
+  .order-list-card-box .order-card-header { min-height: 88rpx; height: auto; flex-wrap: wrap; padding-top: 16rpx; padding-bottom: 16rpx; gap: 8rpx; }
+  .order-list-card-box .order-card-footer { min-height: 100rpx; height: auto; padding-top: 16rpx; padding-bottom: 16rpx; }
+  .order-list-card-box .order-card-footer > view { flex-wrap: wrap; row-gap: 16rpx; }
+  .order-list-card-box .pay-box .discounts-money { color: #F94242; font-size: 28rpx; line-height: 42rpx; }
+
 </style>

@@ -39,26 +39,26 @@
     height: inherit;
     .cicon-title {
       font-size: 30rpx;
-      color: #dfdfdf;
+      color: #E5E5E5;
     }
     .activity-color {
-      color: #60bd45;
+      color: #0B56D3;
     }
     .line {
       width: 1px;
       height: 100%;
-      background: #dfdfdf;
+      background: #E5E5E5;
     }
   }
   .text {
     font-size: 28rpx;
     font-weight: 500;
-    color: #333333;
+    color: #0F0F0F;
   }
   .richtext {
     font-size: 24rpx;
     font-weight: 500;
-    color: #999999;
+    color: #929292;
     margin: 20rpx 0 0 0;
   }
   .content-img {
@@ -71,7 +71,7 @@
     font-size: 24rpx;
     font-family: OPPOSANS;
     font-weight: 400;
-    color: #999999;
+    color: #929292;
     margin-bottom: 40rpx;
   }
 

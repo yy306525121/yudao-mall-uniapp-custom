@@ -1,5 +1,5 @@
 <template>
-  <view class="u-tabs">
+  <view :class="{ 'sales-design': salesDesign }" class="u-tabs">
     <view class="u-tabs__wrapper">
       <slot name="left" />
       <view class="u-tabs__wrapper__scroll-view-wrapper">
@@ -40,7 +40,7 @@
                 {
                   width: addUnit(lineWidth),
                   height: addUnit(lineHeight),
-                  background: lineColor ? lineColor : 'var(--ui-BG-Main)',
+                  background: salesDesign ? '#0B56D3' : lineColor ? lineColor : 'var(--ui-BG-Main)',
                   backgroundSize: lineBgSize,
                 },
               ]"
@@ -56,7 +56,7 @@
                   transform: `translate(${lineOffsetLeft}px)`,
                   transitionDuration: `${firstTime ? 0 : duration}ms`,
                   height: addUnit(lineHeight),
-                  background: lineColor ? lineColor : 'var(--ui-BG-Main)',
+                  background: salesDesign ? '#0B56D3' : lineColor ? lineColor : 'var(--ui-BG-Main)',
                   backgroundSize: lineBgSize,
                 },
               ]"
@@ -72,6 +72,7 @@
 </template>
 
 <script>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
   import { deepMerge, addStyle, addUnit, sleep, getPx } from '@/sheep/helper';
   // #ifdef APP-NVUE
   const animation = uni.requireNativePlugin('animation');
@@ -90,6 +91,7 @@
    * @example <u-tabs :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs>
    */
   export default {
+    setup() { return { salesDesign: useSalesDesign() }; },
     name: 'su-tabs',
     data() {
       return {
@@ -203,7 +205,7 @@
     computed: {
       textStyle() {
         return (index) => {
-          const style = {};
+          const style = this.salesDesign ? { color: index === this.innerCurrent ? '#0B56D3' : '#929292', fontWeight: index === this.innerCurrent ? 600 : 400, fontSize: '28rpx' } : {};
           // 取当期是否激活的样式
           const customeStyle =
             index === this.innerCurrent ? addStyle(this.activeStyle) : addStyle(this.inactiveStyle);
@@ -431,5 +433,10 @@
         }
       }
     }
+  }
+
+  .u-tabs.sales-design {
+    .u-tabs__wrapper__nav__item { min-height: 88rpx; }
+    .u-tabs__wrapper__nav__item__text { font-size: 28rpx; line-height: 42rpx; }
   }
 </style>

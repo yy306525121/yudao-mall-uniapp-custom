@@ -280,13 +280,13 @@
     .tip-text {
       font-size: 30rpx;
       font-weight: bold;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .pay-total-num {
       font-size: 36rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
       font-family: OPPOSANS;
     }
 
@@ -336,4 +336,13 @@
       }
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .pay-result-box { margin: 24rpx 32rpx; padding: 48rpx 24rpx; border-radius: 30rpx; background: #FFFFFF;
+    .tip-text { font-size: 34rpx; line-height: 50rpx; }
+    .pay-total-num { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+    .pay-waiting { border-bottom-color: #0B56D3; }
+    .btn-box .back-btn { @include sales-secondary; width: 208rpx; }
+    .btn-box .check-btn { @include sales-primary(56rpx, 28rpx); width: 208rpx; }
+  }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 错误界面 -->
 <template>
-  <view class="error-page">
+  <view class="error-page sales-design">
     <s-empty
       v-if="errCode === 'NetworkError'"
       icon="/static/internet-empty.png"
@@ -8,7 +8,7 @@
       showAction
       actionText="重新连接"
       @clickAction="onReconnect"
-      buttonColor="#ff3000"
+      buttonColor="#0B56D3"
     />
     <s-empty
       v-else-if="errCode === 'TemplateError'"
@@ -17,7 +17,7 @@
       showAction
       actionText="重新加载"
       @clickAction="onReconnect"
-      buttonColor="#ff3000"
+      buttonColor="#0B56D3"
     />
     <s-empty
       v-else-if="errCode !== ''"
@@ -26,7 +26,7 @@
       showAction
       actionText="重新加载"
       @clickAction="onReconnect"
-      buttonColor="#ff3000"
+      buttonColor="#0B56D3"
     />
   </view>
 </template>
@@ -57,4 +57,5 @@
   .error-page {
     width: 100%;
   }
+  .error-page.sales-design { @include sales-theme; min-height: 100vh; background: #F1F3F6; }
 </style>

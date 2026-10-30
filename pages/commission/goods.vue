@@ -1,6 +1,6 @@
 <!-- 分销商品列表  -->
 <template>
-  <s-layout title="推广商品" :onShareAppMessage="state.shareInfo">
+  <s-layout class="sales-page" title="推广商品" :onShareAppMessage="state.shareInfo">
     <view class="goods-item ss-m-20" v-for="item in state.pagination.list" :key="item.id">
       <s-goods-item
         size="lg"
@@ -153,7 +153,7 @@
     .commission-num {
       font-size: 24rpx;
       font-weight: 500;
-      color: $red;
+      color: #F94242;
     }
 
     .share-btn {
@@ -162,4 +162,18 @@
       border-radius: 25rpx;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.share-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  // New Era V2.0 page presentation.
+  .goods-item { @include sales-record; }
+  .commission-num { color: #F94242; }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 优惠券详情  -->
 <template>
-  <s-layout title="优惠券详情">
+  <s-layout class="sales-page" title="优惠券详情">
     <view class="bg-white">
       <!-- 详情卡片 -->
       <view class="detail-wrap ss-p-20">
@@ -276,7 +276,7 @@
   .goods-title {
     font-size: 34rpx;
     font-weight: bold;
-    color: #333333;
+    color: #0F0F0F;
   }
 
   .detail-wrap {
@@ -322,13 +322,13 @@
 
       .title {
         font-size: 40rpx;
-        color: #333;
+        color: #0F0F0F;
         font-weight: bold;
       }
 
       .subtitle {
         font-size: 28rpx;
-        color: #333333;
+        color: #0F0F0F;
       }
 
       .use-btn {
@@ -352,12 +352,12 @@
       .time {
         font-size: 26rpx;
         font-weight: 400;
-        color: #999999;
+        color: #929292;
       }
 
       .coupon-line {
         width: 95%;
-        border-bottom: 2rpx solid #eeeeee;
+        border-bottom: 2rpx solid #E5E5E5;
       }
     }
 
@@ -369,14 +369,14 @@
 
       .type {
         height: 96rpx;
-        border-bottom: 2rpx solid #eeeeee;
+        border-bottom: 2rpx solid #E5E5E5;
       }
     }
 
     .des {
       font-size: 24rpx;
       font-weight: 400;
-      color: #666666;
+      color: #464646;
     }
   }
 
@@ -385,6 +385,22 @@
     height: 300rpx;
     font-size: 34rpx;
     font-weight: bold;
-    color: #333333;
+    color: #0F0F0F;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.detail-box .top .use-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .detail-wrap { background: #E9F0FF; padding: 24rpx 32rpx; }
+  .detail-box .top .title { font-size: 34rpx; line-height: 50rpx; }
+  .detail-box .bottom { padding: 24rpx; }
+  .detail-box .top .disable-btn { @include sales-primary; background: #E5E5E5; color: #929292; }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <su-popup :show="show" type="center" @close="closeDialog">
-    <view class="uni-popup-dialog">
+    <view :class="{ 'sales-design': salesDesign }" class="uni-popup-dialog">
       <view class="uni-dialog-title">
         <text class="uni-dialog-title-text" :class="['uni-popup__' + dialogType]">
           {{ titleText }}
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
   /**
    * PopUp 弹出层-对话框样式
    * @description 弹出层-对话框样式
@@ -56,6 +57,7 @@
    */
 
   export default {
+    setup() { return { salesDesign: useSalesDesign() }; },
     name: 'SuDialog',
     emits: ['confirm', 'close'],
     props: {
@@ -265,5 +267,16 @@
 
   .uni-popup__info {
     color: #909399;
+  }
+
+  .uni-popup-dialog.sales-design {
+    border-radius: 16rpx; padding: 32rpx; box-sizing: border-box;
+    .uni-dialog-title-text { font-size: 34rpx; line-height: 50rpx; color: #0F0F0F; }
+    .uni-dialog-content-text { font-size: 28rpx; line-height: 42rpx; color: #929292; }
+    .uni-dialog-button-group { border-top: 0; gap: 24rpx; }
+    .uni-dialog-button { @include sales-secondary(84rpx, 32rpx); min-width: 0; flex: 1; }
+    .uni-border-left { @include sales-primary; min-width: 0; }
+    .uni-dialog-button-text { color: #0F0F0F; font-size: 32rpx; }
+    .uni-button-color { color: #FFFFFF; }
   }
 </style>

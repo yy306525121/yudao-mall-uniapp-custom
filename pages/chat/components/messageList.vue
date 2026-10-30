@@ -247,7 +247,7 @@
     height: v-bind(chatScrollHeight);
     width: 100%;
     position: relative;
-    background-color: #f8f8f8;
+    background-color: #F1F3F6;
     z-index: 1;
   }
 
@@ -277,7 +277,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #999;
+    color: #929292;
     font-size: 14px;
   }
 
@@ -290,4 +290,9 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
+
+  .chat-scroll-view { background: #F1F3F6; }
+  .message-list { padding: 24rpx 32rpx; box-sizing: border-box; }
+  .back-top .back-top-item { background: #FFFFFF; color: #0B56D3; border-radius: 1000rpx; }
+
 </style>

@@ -4,6 +4,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 容器组件 - 装修组件的样式容器
    */
@@ -11,6 +13,7 @@
   import sheep from '@/sheep';
 
   const props = defineProps({
+    type: { type: String, default: '' },
     styles: {
       type: Object,
       default() {},
@@ -19,6 +22,7 @@
 
   // 组件样式
   const elBackground = computed(() => {
+    if (salesDesign.value) return { background: ['Popover', 'FloatingActionButton'].includes(props.type) ? 'transparent' : '#FFFFFF' };
     if (props.styles) {
       if (props.styles.bgType === 'color') {
         return { background: props.styles.bgColor };
@@ -32,6 +36,14 @@
   });
 
   const elStyles = computed(() => {
+    if (salesDesign.value) {
+      if (['Popover', 'FloatingActionButton'].includes(props.type)) return {};
+      return {
+        margin: '24rpx 32rpx',
+        padding: ['Carousel', 'ImageBar', 'MagicCube', 'HotZone', 'VideoPlayer'].includes(props.type) ? '0' : '24rpx',
+        borderRadius: '30rpx', overflow: 'hidden',
+      };
+    }
     if (props.styles) {
       return {
         marginTop: `${props.styles.marginTop || 0}px`,

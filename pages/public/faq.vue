@@ -1,6 +1,6 @@
 <!-- FAQ 常见问题 -->
 <template>
-  <s-layout :bgStyle="{ color: '#FFF' }" class="set-wrap" title="常见问题">
+  <s-layout :bgStyle="{ color: '#FFF' }" class="sales-page set-wrap" title="常见问题">
     <uni-collapse>
       <uni-collapse-item v-for="(item, index) in state.list" :key="item">
         <template v-slot:title>
@@ -65,7 +65,7 @@
     .title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
       line-height: 30rpx;
       max-width: 688rpx;
     }
@@ -108,11 +108,23 @@
   }
 
   .content {
-    border-bottom: 1rpx solid #dfdfdf;
+    border-bottom: 1rpx solid #E5E5E5;
 
     .text {
       font-size: 26rpx;
-      color: #666666;
+      color: #464646;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .header { padding: 0 32rpx; }
+  .header .title { min-width: 0; font-size: 32rpx; line-height: 48rpx; }
+  .content { margin: 0 32rpx 24rpx; padding: 24rpx; background: #FFFFFF; border-radius: 16rpx; }
+
 </style>

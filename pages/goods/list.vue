@@ -51,7 +51,7 @@
     <!-- 情况一：单列布局 -->
     <view v-if="state.iconStatus && state.pagination.total > 0" class="goods-list ss-m-t-20">
       <view
-        class="ss-p-l-20 ss-p-r-20 ss-m-b-20"
+        class="sales-inset ss-m-b-24"
         v-for="item in state.pagination.list"
         :key="item.id"
       >
@@ -68,7 +68,7 @@
     <!-- 情况二：双列布局 -->
     <view
       v-if="!state.iconStatus && state.pagination.total > 0"
-      class="ss-flex ss-flex-wrap ss-p-x-20 ss-m-t-20 ss-col-top"
+      class="ss-flex ss-flex-wrap sales-inset ss-m-t-20 ss-col-top"
     >
       <view class="goods-list-box">
         <view class="left-list" v-for="item in state.leftGoodsList" :key="item.id">
@@ -365,7 +365,7 @@
     .filter-item {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
       line-height: normal;
       margin-bottom: 24rpx;
 
@@ -404,4 +404,8 @@
       z-index: 12;
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .goods-list-box .left-list { margin-right: 12rpx; margin-bottom: 24rpx; }
+  .goods-list-box .right-list { margin-left: 12rpx; margin-bottom: 24rpx; }
+
 </style>

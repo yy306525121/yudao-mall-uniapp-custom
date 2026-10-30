@@ -258,7 +258,7 @@
   }
 
   // .icon-files .icon-del {
-  // 	background-color: #333;
+  // 	background-color: #0F0F0F;
   // 	width: 12px;
   // 	height: 1px;
   // }
@@ -320,7 +320,7 @@
   .icon-del {
     width: 15px;
     height: 1px;
-    background-color: #333;
+    background-color: #0F0F0F;
     // border-radius: 1px;
   }
 

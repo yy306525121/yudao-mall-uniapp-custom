@@ -38,6 +38,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    *  装修组件 - 自定义标题栏
    *
@@ -120,6 +122,7 @@
   );
   const isPlaceholder = computed(() => props.data.styleType === 'normal');
   const bgStyles = computed(() => {
+    if (salesDesign.value) return { background: '#FFFFFF' };
     return {
       background:
         props.data.bgType === 'img' && props.data.bgImg

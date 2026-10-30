@@ -1,5 +1,5 @@
 <template>
-  <view
+  <view :class="{ 'sales-design': salesDesign }"
     class="ss-flex-col ss-col-center ss-row-center empty-box"
     :style="[{ paddingTop: paddingTop + 'rpx' }]"
   >
@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import sheep from '@/sheep';
   /**
    * 容器组件 - 装修组件的样式容器
@@ -89,5 +91,11 @@
     font-weight: 500;
     color: v-bind('buttonColor');
     font-size: 28rpx;
+  }
+
+  .empty-box.sales-design {
+    box-sizing: border-box; padding-left: 32rpx; padding-right: 32rpx;
+    .empty-text { color: #BBBBBB; font-size: 26rpx; line-height: 40rpx; text-align: center; }
+    .empty-btn { @include sales-secondary; }
   }
 </style>

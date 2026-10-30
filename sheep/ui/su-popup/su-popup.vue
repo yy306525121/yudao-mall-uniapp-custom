@@ -36,7 +36,8 @@
           <uni-icons
             v-if="showClose"
             class="close-icon"
-            color="#F6F6F6"
+            :class="{ 'sales-popup-close': salesDesign }"
+            :color="salesDesign ? '#929292' : '#F6F6F6'"
             type="closeempty"
             size="32"
             @click="close"
@@ -84,8 +85,10 @@
    * @event {Function} maskClick 点击遮罩触发
    */
   import sheep from '@/sheep';
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
 
   export default {
+    setup() { return { salesDesign: useSalesDesign() }; },
     name: 'SuPopup',
     components: {
       // #ifdef H5
@@ -261,6 +264,11 @@
         return this.backgroundColor;
       },
       borderRadius() {
+        if (this.salesDesign) {
+          if (this.type === 'bottom') return { borderTopLeftRadius: '30rpx', borderTopRightRadius: '30rpx' };
+          if (this.type === 'center') return { borderRadius: '16rpx' };
+          if (this.type === 'top') return { borderBottomLeftRadius: '16rpx', borderBottomRightRadius: '16rpx' };
+        }
         if (this.round) {
           if (this.type === 'bottom') {
             return {
@@ -586,4 +594,5 @@
   .fixforpc-top {
     top: 0;
   }
+  .close-icon.sales-popup-close { top: 16rpx; right: 16rpx; left: auto; bottom: auto; transform: none; }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <view class="uni-numbox">
+  <view :class="{ 'sales-design': salesDesign }" class="uni-numbox">
     <!-- <view @click="_calcValue('minus')" class="uni-numbox__minus uni-numbox-btns" :style="{ background }"> -->
     <!-- <text class="uni-numbox--text" :class="{ 'uni-numbox--disabled': inputValue <= min || disabled }"
 				:style="{ color }">
@@ -39,6 +39,7 @@
   </view>
 </template>
 <script>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
   /**
    * NumberBox 数字输入框
    * @description 带加减按钮的数字输入框
@@ -56,6 +57,7 @@
    */
 
   export default {
+    setup() { return { salesDesign: useSalesDesign() }; },
     name: 'UniNumberBox',
     emits: ['change', 'input', 'update:modelValue', 'blur', 'focus'],
     props: {
@@ -221,5 +223,11 @@
 
   .seckill-btn {
     color: #ff5854;
+  }
+
+  .uni-numbox.sales-design {
+    .cicon-move-round, .cicon-add-round { color: #0B56D3; font-size: 44rpx; }
+    .uni-numbox__value { border-radius: 8rpx; background: #F1F3F6; font-size: 28rpx; }
+    .uni-numbox--disabled { color: #BBBBBB; opacity: 1; }
   }
 </style>

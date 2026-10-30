@@ -111,4 +111,10 @@
 			}
 		}
 	}
+
+  .user-card { width: auto; height: auto; min-height: 192rpx; margin: 0 32rpx; padding: 24rpx 0; background: none; box-sizing: border-box; }
+  .user-card .card-top { padding-bottom: 0; }
+  .user-card .card-top .user-name { color: #0F0F0F; font-size: 42rpx; line-height: 64rpx; }
+  .user-card .head-img-box { background: #E9F0FF; }
+
 </style>

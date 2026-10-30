@@ -1,6 +1,6 @@
 <!-- 售后详情 -->
 <template>
-  <s-layout title="售后详情" :navbar="!isEmpty(state.info) && state.loading ? 'inner' : 'normal'">
+  <s-layout class="sales-page" title="售后详情" :navbar="!isEmpty(state.info) && state.loading ? 'inner' : 'normal'">
     <view class="content_box" v-if="!isEmpty(state.info) && state.loading">
       <!-- 步骤条 -->
       <view
@@ -284,7 +284,7 @@
       font-size: 28rpx;
 
       font-weight: 500;
-      color: rgba(51, 51, 51, 1);
+      color: #0F0F0F;
       margin-bottom: 20rpx;
     }
 
@@ -292,7 +292,7 @@
       font-size: 24rpx;
 
       font-weight: 400;
-      color: rgba(153, 153, 153, 1);
+      color: #929292;
     }
   }
 
@@ -307,14 +307,14 @@
       font-size: 28rpx;
 
       font-weight: 500;
-      color: rgba(51, 51, 51, 1);
+      color: #0F0F0F;
     }
 
     .aftersale-money--num {
       font-size: 28rpx;
       font-family: OPPOSANS;
       font-weight: 500;
-      color: #ff3000;
+      color: #F94242;
     }
   }
 
@@ -335,8 +335,8 @@
       height: 60rpx;
 
       .copy-btn {
-        background: #eeeeee;
-        color: #333;
+        background: #E5E5E5;
+        color: #0F0F0F;
         border-radius: 20rpx;
         width: 75rpx;
         height: 40rpx;
@@ -344,12 +344,12 @@
       }
 
       .item-title {
-        color: #999;
+        color: #929292;
         font-size: 28rpx;
       }
 
       .item-content {
-        color: #333;
+        color: #0F0F0F;
         font-size: 28rpx;
       }
     }
@@ -373,7 +373,23 @@
       font-size: 26rpx;
 
       font-weight: 400;
-      color: rgba(51, 51, 51, 1);
+      color: #0F0F0F;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.foot_box .btn { @include sales-secondary; width: auto; }
+
+  // New Era V2.0 page presentation.
+  .status-box, .order-shop, .aftersale-content { @include sales-record; }
+  .steps-box { padding: 24rpx 32rpx; box-sizing: border-box; }
+  .aftersale-money--num { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+  .foot_box { min-height: 116rpx; padding: 16rpx 32rpx; box-sizing: border-box; gap: 16rpx; flex-wrap: wrap; }
+
 </style>

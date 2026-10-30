@@ -3,12 +3,12 @@
     <s-empty
       v-if="state.list.length === 0"
       icon="/static/cart-empty.png"
-      text="购物车空空如也,快去逛逛吧~"
+      text="购物车暂无商品"
     />
 
     <!-- 头部 -->
     <view v-if="state.list.length" class="cart-box ss-flex ss-flex-col ss-row-between">
-      <view class="cart-header ss-flex ss-col-center ss-row-between ss-p-x-30">
+      <view class="cart-header ss-flex ss-col-center ss-row-between sales-inset">
         <view class="header-left ss-flex ss-col-center ss-font-26">
           共
           <text class="goods-number ui-TC-Main ss-flex">{{ state.list.length }}</text>
@@ -24,7 +24,7 @@
         </view>
       </view>
       <!-- 内容 -->
-      <view class="cart-content ss-flex-1 ss-p-x-30 ss-m-b-40">
+      <view class="cart-content ss-flex-1 sales-inset ss-m-b-40">
         <view v-for="item in state.list" :key="item.id" class="goods-box ss-r-10 ss-m-b-14">
           <view class="ss-flex ss-col-center">
             <label class="check-box ss-flex ss-col-center ss-p-l-10" @tap="onSelectSingle(item.id)">
@@ -53,7 +53,7 @@
               "
               :title="item.spu.name"
               :titleWidth="400"
-              priceColor="#FF3000"
+              priceColor="#F94242"
             >
               <template v-if="!state.editMode" v-slot:tool>
                 <su-number-box
@@ -70,7 +70,7 @@
       </view>
       <!-- 底部 -->
       <su-fixed v-if="state.list.length > 0" :isInset="false" :val="48" bottom placeholder>
-        <view class="cart-footer ss-flex ss-col-center ss-row-between ss-p-x-30 border-bottom">
+        <view class="cart-footer ss-flex ss-col-center ss-row-between sales-inset border-bottom">
           <view class="footer-left ss-flex ss-col-center">
             <label class="check-box ss-flex ss-col-center ss-p-r-30" @tap="onSelectAll">
               <radio
@@ -256,16 +256,13 @@
 </script>
 
 <style lang="scss" scoped>
-  :deep(.ui-fixed) {
-    height: 72rpx;
-  }
 
   .cart-box {
     width: 100%;
 
     .cart-header {
       height: 70rpx;
-      background-color: #f6f6f6;
+      background-color: #F1F3F6;
       width: 100%;
       position: fixed;
       left: 0;
@@ -307,9 +304,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #999;
+        color: #929292;
         font-size: 32rpx;
       }
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .cart-box {
+    .cart-header { height: 88rpx; background: #F1F3F6; }
+    .cart-content { margin-top: 88rpx; box-sizing: border-box; width: 100%; }
+    .cart-content .goods-box { border-radius: 16rpx; margin-bottom: 24rpx; }
+    .cart-footer { height: 116rpx; }
+    .cart-footer .pay-btn { @include sales-primary(84rpx, 32rpx); width: 208rpx; }
+  }
+
 </style>

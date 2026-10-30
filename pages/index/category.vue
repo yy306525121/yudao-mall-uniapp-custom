@@ -159,7 +159,7 @@
         width: 200rpx;
         height: 100%;
         padding-left: 12rpx;
-        background-color: #f6f6f6;
+        background-color: #F1F3F6;
         position: fixed;
         left: 0;
 
@@ -173,7 +173,7 @@
             line-height: 32rpx;
             font-size: 30rpx;
             font-weight: 400;
-            color: #333;
+            color: #0F0F0F;
             margin-left: 28rpx;
             position: relative;
             z-index: 0;
@@ -244,4 +244,10 @@
       }
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .s-category :deep(.side-menu-wrap) { box-sizing: border-box; padding-left: 0; }
+  .s-category :deep(.goods-list-box) { box-sizing: border-box; padding: 24rpx; }
+  .s-category :deep(.banner-img) { width: 100%; border-radius: 16rpx; margin-bottom: 24rpx; }
+  .s-category :deep(.menu-item-active .menu-title) { color: #0B56D3; }
+
 </style>

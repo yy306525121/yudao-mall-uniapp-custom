@@ -2,7 +2,7 @@
 <template>
   <s-layout
     title="拼团详情"
-    class="detail-wrap"
+    class="sales-page detail-wrap"
     :navbar="state.data && !state.loading ? 'inner' : 'normal'"
     :onShareAppMessage="shareInfo"
   >
@@ -349,7 +349,7 @@
     position: relative;
     margin-bottom: 120rpx;
     background: v-bind(headerBg) center/750rpx 100% no-repeat,
-      linear-gradient(115deg, #f44739 0%, #ff6600 100%);
+      linear-gradient(115deg, #0D64F5 0%, #0B56D3 100%);
     border-radius: 0 0 5% 5%;
     height: 100rpx;
 
@@ -363,18 +363,18 @@
 
     .sales-title {
       height: 32rpx;
-      background: rgba(#ffe0e2, 0.29);
+      background: rgba(#E9F0FF, 0.29);
       border-radius: 16rpx;
       font-size: 24rpx;
       font-weight: 400;
       padding: 6rpx 20rpx;
-      color: #f7979c;
+      color: #0B56D3;
     }
 
     .num-title {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: #929292;
     }
   }
 
@@ -390,7 +390,7 @@
       padding: 0 4rpx;
       margin-left: 16rpx;
       height: 40rpx;
-      background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+      background: linear-gradient(90deg, #0B56D3 0%, #0D64F5 100%);
       border-radius: 6rpx;
     }
     .countdown-num {
@@ -400,7 +400,7 @@
       color: #ffffff;
       width: 40rpx;
       height: 40rpx;
-      background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+      background: linear-gradient(90deg, #0B56D3 0%, #0D64F5 100%);
       border-radius: 6rpx;
     }
   }
@@ -408,13 +408,13 @@
   .countdown-box {
     // height: 364rpx;
     background: #ffffff;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     box-sizing: border-box;
 
     .countdown-title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
 
       .cicon-check-round {
         color: #42b111;
@@ -427,7 +427,7 @@
       }
 
       .num {
-        color: #ff6000;
+        color: #0B56D3;
       }
     }
 
@@ -480,9 +480,9 @@
   .order-btn {
     width: 668rpx;
     height: 70rpx;
-    border: 2rpx solid #dfdfdf;
+    border: 2rpx solid #E5E5E5;
     border-radius: 35rpx;
-    color: #999999;
+    color: #929292;
     font-weight: 500;
     font-size: 26rpx;
     line-height: normal;
@@ -491,9 +491,9 @@
   .disabled-btn {
     width: 668rpx;
     height: 70rpx;
-    background: #dddddd;
+    background: #E5E5E5;
     border-radius: 35rpx;
-    color: #999999;
+    color: #929292;
     font-weight: 500;
     font-size: 28rpx;
     line-height: normal;
@@ -502,7 +502,7 @@
   .join-btn {
     width: 668rpx;
     height: 70rpx;
-    background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+    background: linear-gradient(90deg, #0B56D3 0%, #0D64F5 100%);
     box-shadow: 0px 8rpx 6rpx 0px rgba(255, 104, 4, 0.22);
     border-radius: 35rpx;
     color: #fff;
@@ -515,7 +515,7 @@
     width: 100%;
     padding: 10rpx 20rpx;
     box-sizing: border-box;
-    border-top: 2rpx solid #dfdfdf;
+    border-top: 2rpx solid #E5E5E5;
     background-color: #fff;
     // min-height: 60rpx;
 
@@ -527,13 +527,32 @@
     .cell-content {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: #464646;
     }
 
     .right-forwrad-icon {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: #929292;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.join-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+.order-btn { @include sales-secondary; width: auto; }
+
+  .recharge-box, .goods-box, .countdown-box, .detail-cell-wrap { margin-left: 32rpx; margin-right: 32rpx; box-sizing: border-box; border-radius: 16rpx; }
+  .countdown-box { padding: 24rpx; background: #FFFFFF; }
+  .countdown-time { color: #0B56D3; }
+  .countdown-h, .countdown-num { background: #E9F0FF; color: #0B56D3; }
+  .disabled-btn { @include sales-primary; background: #E5E5E5; color: #929292; max-width: 100%; }
+
 </style>

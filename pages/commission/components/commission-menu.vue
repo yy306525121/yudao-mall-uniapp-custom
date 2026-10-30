@@ -83,7 +83,7 @@
     width: 690rpx;
     margin-bottom: 20rpx;
     margin-top: 20rpx;
-    border-radius: 12rpx;
+    border-radius: 16rpx;
     z-index: 3;
     position: relative;
   }
@@ -142,4 +142,13 @@
     font-weight: 500;
     color: #ffffff;
   }
+
+  .menu-box { width: auto; margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; background: #FFFFFF;
+    .header-box { width: 100%; height: 88rpx; background: #E9F0FF; }
+    .header-box .header-bg { display: none; }
+    .header-box .header-title { left: 24rpx; top: 20rpx; }
+    .header-box .title, .header-box .cicon-forward { color: #0B56D3; font-size: 32rpx; line-height: 48rpx; }
+    .menu-list, .log-scroll { background: #FFFFFF; padding: 24rpx; }
+  }
+
 </style>

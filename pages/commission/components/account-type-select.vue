@@ -139,10 +139,10 @@
 
       .container-list {
         height: 96rpx;
-        border-bottom: 2rpx solid rgba(#dfdfdf, 0.5);
+        border-bottom: 2rpx solid rgba(#E5E5E5, 0.5);
         font-size: 28rpx;
         font-weight: 500;
-        color: #333333;
+        color: #0F0F0F;
 
         .container-icon {
           width: 36rpx;
@@ -168,4 +168,14 @@
     width: 100%;
     height: 100%;
   }
+
+  // New Era V2.0 page presentation.
+.ss-modal-box .modal-footer .save-btn { @include sales-primary; max-width: 100%; }
+
+  .ss-modal-box { max-height: 85vh; }
+  .ss-modal-box .modal-header { padding: 48rpx 32rpx 24rpx; }
+  .ss-modal-box .modal-content { min-height: 0; max-height: 55vh; }
+  .ss-modal-box .modal-footer { height: auto; padding: 16rpx 32rpx; }
+  .ss-modal-box .modal-footer .save-btn { width: 100%; }
+
 </style>

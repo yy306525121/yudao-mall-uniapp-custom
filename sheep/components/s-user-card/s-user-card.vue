@@ -1,6 +1,6 @@
 <!-- 装修用户组件：用户卡片 -->
 <template>
-  <view class="ss-user-info-wrap ss-p-t-50" :style="[bgStyle, { marginLeft: `${data.space}px` }]">
+  <view :class="{ 'sales-design': salesDesign }" class="ss-user-info-wrap ss-p-t-50" :style="[bgStyle, { marginLeft: salesDesign ? '0' : `${data.space}px` }]">
     <view class="ss-flex ss-col-center ss-row-between ss-m-b-20">
       <view class="left-box ss-flex ss-col-center ss-m-l-36">
         <view class="avatar-box ss-m-r-24">
@@ -39,6 +39,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 用户卡片
    *
@@ -102,6 +104,7 @@
 
   // 设置背景样式
   const bgStyle = computed(() => {
+    if (salesDesign.value) return { background: '#FFFFFF' };
     // 直接从 props.styles 解构
     const { bgType, bgImg, bgColor } = props.styles;
 
@@ -180,5 +183,16 @@
       font-weight: 500;
       color: #ffffff;
     }
+  }
+
+  .ss-user-info-wrap.sales-design {
+    padding-top: 24rpx;
+    .left-box { margin-left: 0; min-width: 0; }
+    .right-box { margin-right: 0; }
+    .nick-name { font-size: 42rpx; line-height: 64rpx; font-weight: 600; color: #0F0F0F; word-break: break-all; }
+    .avatar-box { flex-shrink: 0; }
+    .bind-mobile-box { min-height: 88rpx; height: auto; padding: 16rpx 0 0; gap: 16rpx; box-shadow: none; border-top: 1rpx solid #E5E5E5; }
+    .bind-mobile-box .mobile-title, .bind-mobile-box .cicon-mobile-o { color: #FD8211; }
+    .bind-mobile-box .bind-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; flex-shrink: 0; }
   }
 </style>

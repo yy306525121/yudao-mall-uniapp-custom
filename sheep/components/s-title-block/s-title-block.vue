@@ -18,7 +18,7 @@
       v-if="data.more?.show"
       class="more-box ss-flex ss-col-center"
       @tap="sheep.$router.go(data.more.url)"
-      :style="{ color: data.descriptionColor }"
+      :style="{ color: salesDesign ? '#929292' : data.descriptionColor }"
     >
       <view class="more-text" v-if="data.more.type !== 'icon'">{{ data.more.text }} </view>
       <text class="_icon-forward" v-if="data.more.type !== 'text'"></text>
@@ -27,6 +27,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 标题栏
    */
@@ -54,7 +56,7 @@
   });
 
   // 组件样式
-  const elStyles = {
+  const elStyles = salesDesign.value ? { minHeight: '80rpx', height: 'auto', padding: '8rpx 0' } : {
     background: `url(${sheep.$url.cdn(props.data.bgImgUrl)}) no-repeat top center / 100% auto`,
     fontSize: `${props.data.titleSize}px`,
     fontWeight: `${props.data.titleWeight}`,
@@ -63,7 +65,7 @@
   };
 
   // 标题样式
-  const titleStyles = {
+  const titleStyles = salesDesign.value ? { color: '#0F0F0F', fontSize: '32rpx', fontWeight: 600, lineHeight: '48rpx' } : {
     color: props.data.titleColor,
     fontSize: `${props.data.titleSize}px`,
     textAlign: props.data.textAlign,
@@ -72,7 +74,7 @@
   };
 
   // 副标题
-  const descStyles = {
+  const descStyles = salesDesign.value ? { color: '#929292', fontSize: '26rpx', lineHeight: '40rpx' } : {
     color: props.data.descriptionColor,
     textAlign: props.data.textAlign,
     fontSize: `${props.data.descriptionSize}px`,

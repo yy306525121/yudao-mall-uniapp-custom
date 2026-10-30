@@ -1,6 +1,6 @@
 <!-- 秒杀商品详情 -->
 <template>
-  <s-layout :onShareAppMessage="shareInfo" navbar="goods">
+  <s-layout class="sales-page" :onShareAppMessage="shareInfo" navbar="goods">
     <!-- 标题栏 -->
     <detailNavbar />
     <!-- 骨架屏 -->
@@ -301,7 +301,7 @@
   .detail-card {
     background-color: $white;
     margin: 14rpx 20rpx;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     overflow: hidden;
   }
 
@@ -311,16 +311,16 @@
     box-sizing: border-box;
     // height: 320rpx;
     background-size: 100% 100%;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     background-image: v-bind(headerBg);
     background-repeat: no-repeat;
 
     .price-box {
       .price-text {
-        font-size: 30rpx;
+        font-size: 40rpx;
         font-weight: 500;
-        color: #fff;
-        line-height: normal;
+        color: #F94242;
+        line-height: 60rpx;
         font-family: OPPOSANS;
 
         &::before {
@@ -479,7 +479,7 @@
       background-image: v-bind(disabledBtnBg);
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      color: #999999;
+      color: #929292;
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -558,13 +558,13 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
     }
   }
 
@@ -572,4 +572,30 @@
     width: 100%;
     height: 100%;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .detail-card, .title-card { margin: 24rpx 32rpx; border-radius: 16rpx; box-sizing: border-box; }
+  .title-card { padding: 24rpx; background: #FFFFFF; }
+  .title-card .title-text { color: #0F0F0F; font-size: 32rpx; line-height: 48rpx; }
+  .title-card .price-text, .title-card .point-text { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+  .title-card .countdown-title { color: #929292; }
+  .countdown-time { color: #0B56D3; }
+  .title-card .countdown-num, .title-card .countdown-h { background: #E9F0FF; color: #0B56D3; border-radius: 8rpx; }
+  .buy-box { display: flex; gap: 16rpx; min-width: 0;
+    .check-btn-box, .disabled-btn-box { @include sales-primary(84rpx, 28rpx); width: 194rpx; min-width: 0; margin-left: 0; line-height: 36rpx; }
+    .disabled-btn-box, .disabled-btn-box[disabled] { background: #E5E5E5; color: #929292; }
+    .origin-price-btn { @include sales-secondary(84rpx, 28rpx); width: 194rpx; min-width: 0; line-height: 36rpx; }
+  }
+  .activity-go { color: #0B56D3; }
+
+  .title-card .price-box .origin-price, .title-card .price-box .origin-price-text { color: #929292; }
+  .title-card .countdown-time .countdown-num, .title-card .countdown-time .countdown-h { background: #E9F0FF; color: #0B56D3; }
+  .title-card .tig { border-color: #0B56D3; }
+  .title-card .tig .tig-icon { background: #0B56D3; }
+  .title-card .tig .tig-title { color: #0B56D3; }
 </style>

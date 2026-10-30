@@ -1,5 +1,5 @@
 <template>
-  <s-layout :bgStyle="{ color: '#fff' }" class="set-wrap" title="系统设置">
+  <s-layout :bgStyle="{ color: '#fff' }" class="sales-page set-wrap" title="系统设置">
     <view class="header-box ss-flex-col ss-row-center ss-col-center">
       <image
         class="logo-img ss-m-b-46"
@@ -174,14 +174,14 @@
     .name {
       font-size: 42rpx;
       font-weight: 400;
-      color: $dark-3;
+      color: #0F0F0F;
     }
 
     .version {
       font-size: 32rpx;
       font-weight: 500;
       line-height: 32rpx;
-      color: $gray-b;
+      color: #BBBBBB;
     }
   }
 
@@ -191,7 +191,7 @@
     .copyright-text {
       font-size: 22rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: #BBBBBB;
       line-height: 30rpx;
     }
 
@@ -204,7 +204,7 @@
       }
 
       .agreement-text {
-        color: $dark-9;
+        color: #929292;
       }
     }
   }
@@ -219,18 +219,35 @@
   .list-border {
     font-size: 28rpx;
     font-weight: 400;
-    color: #333333;
-    border-bottom: 2rpx solid #eeeeee;
+    color: #0F0F0F;
+    border-bottom: 2rpx solid #E5E5E5;
   }
 
   :deep(.uni-list-item__content-title) {
     font-size: 28rpx;
     font-weight: 500;
-    color: #333;
+    color: #0F0F0F;
   }
 
   :deep(.uni-list-item__extra-text) {
-    color: #bbbbbb;
+    color: #BBBBBB;
     font-size: 28rpx;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.loginout-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .container-list { width: auto; margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; background: #FFFFFF; }
+  .header-box { padding: 48rpx 32rpx; }
+  .header-box .name { font-weight: 600; line-height: 64rpx; }
+  .header-box .version { font-size: 26rpx; line-height: 40rpx; }
+  .loginout-btn { width: calc(100% - 64rpx); margin: 24rpx 32rpx; }
+
 </style>

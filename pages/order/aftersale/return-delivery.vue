@@ -1,5 +1,5 @@
 <template>
-	<s-layout title="退货物流">
+	<s-layout class="sales-page" title="退货物流">
 		<view>
 			<form @submit="subRefund" report-submit='true'>
 				<view class='apply-return'>
@@ -96,13 +96,13 @@
 
 	.apply-return .list .item {
 		min-height: 90rpx;
-		border-bottom: 1rpx solid #eee;
+		border-bottom: 1rpx solid #E5E5E5;
 		font-size: 30rpx;
-		color: #333;
+		color: #0F0F0F;
 	}
 
 	.apply-return .list .item .num {
-		color: #282828;
+		color: #0F0F0F;
 		margin-left: 27rpx;
 		// width: 227rpx;
 		// text-align: right;
@@ -113,7 +113,7 @@
 	}
 
 	.apply-return .list .item .num .picker .iconfont {
-		color: #666;
+		color: #464646;
 		font-size: 30rpx;
 		margin-top: 2rpx;
 	}
@@ -128,7 +128,7 @@
 	}
 
 	.apply-return .list .item .placeholder {
-		color: #bbb;
+		color: #BBBBBB;
 	}
 
 	.apply-return .list .item .title {
@@ -138,7 +138,7 @@
 
 	.apply-return .list .item .title .tip {
 		font-size: 30rpx;
-		color: #bbb;
+		color: #BBBBBB;
 	}
 
 	.apply-return .list .item .upload {
@@ -146,13 +146,13 @@
 	}
 
 	.apply-return .list .item .upload .pictrue {
-		border-radius: 14rpx;
+		border-radius: 16rpx;
 		margin: 22rpx 23rpx 0 0;
 		width: 156rpx;
 		height: 156rpx;
 		position: relative;
 		font-size: 24rpx;
-		color: #bbb;
+		color: #BBBBBB;
 	}
 
 	.apply-return .list .item .upload .pictrue:nth-of-type(4n) {
@@ -162,7 +162,7 @@
 	.apply-return .list .item .upload .pictrue image {
 		width: 100%;
 		height: 100%;
-		border-radius: 14rpx;
+		border-radius: 16rpx;
 	}
 
 	.apply-return .list .item .upload .pictrue .icon-guanbi1 {
@@ -178,7 +178,7 @@
 	}
 
 	.apply-return .list .item .upload .pictrue:nth-last-child(1) {
-		border: 1rpx solid #ddd;
+		border: 1rpx solid #E5E5E5;
 		box-sizing: border-box;
 	}
 
@@ -192,4 +192,21 @@
 		line-height: 86rpx;
 		margin: 43rpx auto;
 	}
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.apply-return .returnBnt { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .apply-return { padding: 24rpx 32rpx; }
+  .apply-return .list { padding: 0 24rpx 24rpx; margin-top: 0; border-radius: 16rpx; }
+  .apply-return .list .item { @include sales-field; gap: 24rpx; }
+  .apply-return .list .item .num { min-width: 0; flex: 1; }
+  .apply-return .list .item .num .picker .reason { width: auto; max-width: 100%; }
+
 </style>

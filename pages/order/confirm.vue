@@ -15,7 +15,7 @@
         :num="item.count"
         marginBottom="10"
       />
-      <view class="order-item ss-flex ss-col-center ss-row-between ss-p-x-20 bg-white ss-r-10">
+      <view class="order-item ss-flex ss-col-center ss-row-between sales-inset bg-white ss-r-10">
         <view class="item-title">订单备注</view>
         <view class="ss-flex ss-col-center">
           <uni-easyinput
@@ -132,14 +132,14 @@
         >
           <view class="item-title">优惠券</view>
           <view class="ss-flex ss-col-center" @tap="state.showCoupon = true">
-            <text class="item-value text-red" v-if="state.orderPayload.couponId > 0">
+            <text class="item-value sales-price" v-if="state.orderPayload.couponId > 0">
               -￥{{ fen2yuan(state.orderInfo.price.couponPrice) }}
             </text>
             <text
               class="item-value"
               :class="
                 state.couponInfo.filter((coupon) => coupon.match).length > 0
-                  ? 'text-red'
+                  ? 'sales-price'
                   : 'text-disabled'
               "
               v-else
@@ -159,7 +159,7 @@
         >
           <view class="item-title">活动优惠</view>
           <view class="ss-flex ss-col-center" @tap="state.showDiscount = true">
-            <text class="item-value text-red">
+            <text class="item-value sales-price">
               -￥{{ fen2yuan(state.orderInfo.price.discountPrice) }}
             </text>
             <text class="_icon-forward item-icon" />
@@ -171,7 +171,7 @@
         >
           <view class="item-title">会员优惠</view>
           <view class="ss-flex ss-col-center">
-            <text class="item-value text-red">
+            <text class="item-value sales-price">
               -￥{{ fen2yuan(state.orderInfo.price.vipPrice) }}
             </text>
           </view>
@@ -182,7 +182,7 @@
           共{{ state.orderInfo.items.reduce((acc, item) => acc + item.count, 0) }}件
         </view>
         <view>合计：</view>
-        <view class="total-num text-red"> ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}</view>
+        <view class="total-num sales-price"> ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}</view>
       </view>
     </view>
 
@@ -203,9 +203,9 @@
 
     <!-- 底部 -->
     <su-fixed bottom :opacity="false" bg="bg-white" placeholder :noFixed="false" :index="200">
-      <view class="footer-box border-top ss-flex ss-row-between ss-p-x-20 ss-col-center">
+      <view class="footer-box border-top ss-flex ss-row-between sales-inset ss-col-center">
         <view class="total-box-footer ss-flex ss-col-center">
-          <view class="total-num ss-font-30 text-red">
+          <view class="total-num ss-font-30 sales-price">
             ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}
           </view>
         </view>
@@ -421,7 +421,7 @@
 
       .uni-input-input {
         font-weight: 500;
-        color: #333333;
+        color: #0F0F0F;
         font-size: 26rpx;
         height: 32rpx;
         margin-top: 4rpx;
@@ -460,7 +460,7 @@
     }
 
     .item-icon {
-      color: $dark-9;
+      color: #929292;
     }
 
     .remark-input {
@@ -468,7 +468,7 @@
     }
 
     .item-placeholder {
-      color: $dark-9;
+      color: #929292;
       font-size: 26rpx;
       text-align: right;
     }
@@ -478,7 +478,7 @@
     height: 90rpx;
 
     .total-num {
-      color: #333333;
+      color: #0F0F0F;
       font-family: OPPOSANS;
     }
   }
@@ -502,19 +502,19 @@
       height: 80rpx;
       font-size: 26rpx;
       background-color: #e5e5e5;
-      color: $dark-9;
+      color: #929292;
     }
   }
 
   .title {
     font-size: 36rpx;
     font-weight: bold;
-    color: #333333;
+    color: #0F0F0F;
   }
 
   .subtitle {
     font-size: 28rpx;
-    color: #999999;
+    color: #929292;
   }
 
   .cicon-checkbox {
@@ -524,6 +524,16 @@
 
   .cicon-box {
     font-size: 36rpx;
-    color: #999999;
+    color: #929292;
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .order-card-box { margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; }
+  .total-card-box { @include sales-card; margin: 24rpx 32rpx; }
+  .order-item { min-height: 88rpx; height: auto; padding-top: 12rpx; padding-bottom: 12rpx; box-sizing: border-box; }
+  .footer-box { min-height: 116rpx; height: auto; padding-top: 16rpx; padding-bottom: 16rpx;
+    .submit-btn { @include sales-primary; }
+    .cancel-btn { @include sales-primary; background: #E5E5E5; color: #929292; }
+  }
+
+  .sales-price { color: #F94242; }
 </style>

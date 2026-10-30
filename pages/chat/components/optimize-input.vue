@@ -404,7 +404,7 @@
     flex: 1;
     position: relative;
     text-align: left;
-    color: #333;
+    color: #0F0F0F;
     font-size: 14px;
   }
 
@@ -432,7 +432,7 @@
     height: 56rpx;
   }
   .uni-easyinput__placeholder-class {
-    color: #bbbbbb;
+    color: #BBBBBB;
     font-size: 28rpx;
     font-weight: 400;
     line-height: normal;
@@ -512,7 +512,7 @@
     margin-bottom: 0;
     padding: 10px 15px;
     // padding-bottom: 0;
-    border-top: 1px #eee solid;
+    border-top: 1px #E5E5E5 solid;
   }
 
   .uni-easyinput-error {

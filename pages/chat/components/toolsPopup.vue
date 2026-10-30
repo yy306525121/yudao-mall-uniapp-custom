@@ -11,7 +11,7 @@
             class="emoji-swiper"
             :indicator-dots="true"
             circular
-            indicator-active-color="#7063D2"
+            indicator-active-color="#0B56D3"
             indicator-color="rgba(235, 231, 255, 1)"
             :autoplay="false"
             :interval="3000"
@@ -113,7 +113,7 @@
   .content {
     width: 100%;
     align-content: space-around;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid #E5E5E5;
     padding: 20rpx 0 0;
 
     .emoji-swiper {
@@ -136,7 +136,7 @@
       height: 280rpx;
       text-align: center;
       font-size: 24rpx;
-      color: #333;
+      color: #0F0F0F;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -163,4 +163,8 @@
       }
     }
   }
+
+  .content { border-color: #E5E5E5; background: #F8FBFF; padding-top: 24rpx; box-sizing: border-box; }
+  .content .emoji-swiper { box-sizing: border-box; }
+
 </style>

@@ -489,7 +489,7 @@
 
   .order-address-box {
     background-color: #fff;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     margin: -50rpx 20rpx 16rpx 20rpx;
     padding: 44rpx 34rpx 42rpx 20rpx;
     font-size: 30rpx;
@@ -510,7 +510,7 @@
   }
 
   .detail-goods {
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     margin: 0 20rpx 20rpx 20rpx;
 
     .order-list {
@@ -549,7 +549,7 @@
   // 订单信息。
   .notice-box {
     background: #fff;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     margin: 0 20rpx 20rpx 20rpx;
 
     .notice-box__head {
@@ -585,12 +585,12 @@
 
       .title {
         font-size: 28rpx;
-        color: #999;
+        color: #929292;
       }
 
       .detail {
         font-size: 28rpx;
-        color: #333;
+        color: #0F0F0F;
         flex: 1;
       }
     }
@@ -610,7 +610,7 @@
   // 订单价格信息
   .order-price-box {
     background-color: #fff;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     padding: 20rpx;
     margin: 0 20rpx 20rpx 20rpx;
 
@@ -619,12 +619,12 @@
 
       .title {
         font-size: 28rpx;
-        color: #999;
+        color: #929292;
       }
 
       .detail {
         font-size: 28rpx;
-        color: #333;
+        color: #0F0F0F;
         font-family: OPPOSANS;
       }
     }
@@ -636,7 +636,7 @@
       .title {
         font-size: 26rpx;
         font-weight: 500;
-        color: #333333;
+        color: #0F0F0F;
         line-height: normal;
       }
 
@@ -644,7 +644,7 @@
         font-size: 26rpx;
         font-family: OPPOSANS;
         line-height: normal;
-        color: $red;
+        color: #F94242;
       }
     }
   }
@@ -654,7 +654,7 @@
     height: 100rpx;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 10rpx;
+    border-radius: 16rpx;
     padding-right: 20rpx;
 
     .cancel-btn {
@@ -665,7 +665,7 @@
       margin-right: 20rpx;
       font-size: 26rpx;
       font-weight: 400;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .pay-btn {
@@ -676,5 +676,14 @@
       font-weight: 500;
       color: #fff;
     }
+  }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .order-address-box { margin: -40rpx 32rpx 24rpx; padding: 24rpx; border-radius: 16rpx; }
+  .detail-goods, .notice-box { margin: 0 32rpx 24rpx; border-radius: 16rpx; overflow: hidden; }
+  .apply-btn { @include sales-secondary(48rpx, 24rpx); min-width: 88rpx; width: auto; }
+
+  .footer-box { min-height: 116rpx; height: auto; padding: 16rpx 32rpx; flex-wrap: wrap; gap: 16rpx;
+    .cancel-btn { @include sales-secondary; width: auto; margin-right: 0; }
+    .pay-btn { @include sales-primary(56rpx, 28rpx); width: auto; min-width: 112rpx; }
   }
 </style>

@@ -1,6 +1,6 @@
 <!-- 用户信息 -->
 <template>
-  <s-layout title="用户信息" class="set-userinfo-wrap">
+  <s-layout title="用户信息" class="sales-page set-userinfo-wrap">
     <uni-forms
       :model="state.model"
       :rules="state.rules"
@@ -319,7 +319,7 @@
 
     .uni-list-item__content-title {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: #0F0F0F !important;
       line-height: normal !important;
     }
 
@@ -328,7 +328,7 @@
     }
 
     .is-disabled {
-      color: #333333;
+      color: #0F0F0F;
     }
   }
 
@@ -340,13 +340,13 @@
     font-size: 28rpx;
     font-weight: 500;
     line-height: normal;
-    color: #333333;
+    color: #0F0F0F;
   }
 
   .title-box {
     font-size: 28rpx;
     font-weight: 500;
-    color: #666666;
+    color: #464646;
     line-height: 100rpx;
   }
 
@@ -409,7 +409,7 @@
 
     .list-name {
       font-size: 28rpx;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .info {
@@ -423,7 +423,7 @@
       .name {
         font-size: 28rpx;
         font-weight: 400;
-        color: $dark-9;
+        color: #929292;
       }
     }
 
@@ -441,7 +441,7 @@
         height: 100%;
         border-radius: 25rpx;
         background: #f4f4f4;
-        color: #999999;
+        color: #929292;
       }
       .relieve-btn {
         width: 100%;
@@ -456,12 +456,30 @@
   .list-border {
     font-size: 28rpx;
     font-weight: 400;
-    color: #333333;
-    border-bottom: 2rpx solid #eeeeee;
+    color: #0F0F0F;
+    border-bottom: 2rpx solid #E5E5E5;
   }
 
   image {
     width: 100%;
     height: 100%;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.logout-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .form-box, .account-list { margin: 24rpx 32rpx; border-radius: 16rpx; overflow: hidden; }
+  .avatar-action { gap: 16rpx; flex-wrap: wrap; }
+  .avatar-action-btn { @include sales-secondary(48rpx, 24rpx); min-width: 88rpx; }
+  .bind-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+  .relieve-btn { @include sales-secondary(48rpx, 24rpx); min-width: 88rpx; }
+  .logout-btn { width: calc(100% - 64rpx); margin: 24rpx 32rpx; }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 分销 - 订单明细 -->
 <template>
-  <s-layout title="分销订单" :class="state.scrollTop ? 'order-warp' : ''" navbar="inner">
+  <s-layout class="sales-page" title="分销订单" :class="state.scrollTop ? 'order-warp' : ''" navbar="inner">
     <view
       class="header-box"
       :style="[
@@ -189,7 +189,7 @@
           .item-title {
             font-size: 24rpx;
             font-weight: 500;
-            color: #999999;
+            color: #929292;
             line-height: normal;
             margin-bottom: 20rpx;
           }
@@ -197,7 +197,7 @@
           .total-num {
             font-size: 38rpx;
             font-weight: 500;
-            color: #333333;
+            color: #0F0F0F;
             font-family: OPPOSANS;
           }
         }
@@ -205,7 +205,7 @@
         .category-num {
           font-size: 26rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
           font-family: OPPOSANS;
         }
       }
@@ -225,14 +225,14 @@
         .item-title {
           font-size: 22rpx;
           font-weight: 500;
-          color: #999999;
+          color: #929292;
           margin-bottom: 6rpx;
         }
 
         .item-value {
           font-size: 38rpx;
           font-weight: 500;
-          color: #333333;
+          color: #0F0F0F;
           font-family: OPPOSANS;
         }
       }
@@ -243,13 +243,13 @@
   .order-box {
     .order-item {
       background: #ffffff;
-      border-radius: 10rpx;
+      border-radius: 16rpx;
       margin: 20rpx;
 
       .order-footer {
         padding: 20rpx;
         font-size: 24rpx;
-        color: #999;
+        color: #929292;
       }
 
       .order-header {
@@ -259,7 +259,7 @@
           .order-code {
             font-size: 26rpx;
             font-weight: 500;
-            color: #333333;
+            color: #0F0F0F;
           }
 
           .order-state {
@@ -275,7 +275,7 @@
           .from-user {
             font-size: 24rpx;
             font-weight: 400;
-            color: #666666;
+            color: #464646;
 
             .user-avatar {
               width: 26rpx;
@@ -287,14 +287,14 @@
             .user-name {
               font-size: 24rpx;
               font-weight: 400;
-              color: #999999;
+              color: #929292;
             }
           }
 
           .order-time {
             font-size: 24rpx;
             font-weight: 400;
-            color: #999999;
+            color: #929292;
           }
         }
       }
@@ -303,14 +303,14 @@
         .name {
           font-size: 24rpx;
           font-weight: 400;
-          color: #999999;
+          color: #929292;
         }
       }
 
       .commission-num {
         font-size: 30rpx;
         font-weight: 500;
-        color: $red;
+        color: #F94242;
         font-family: OPPOSANS;
 
         &::before {
@@ -329,4 +329,19 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .header-box { width: 100%; padding: 24rpx 32rpx; box-sizing: border-box; background: linear-gradient(90deg, #0D64F5, #0B56D3); }
+  .header-box .team-data-box { gap: 24rpx; }
+  .header-box .team-data-box .data-card { flex: 1; min-width: 0; width: auto; padding: 24rpx; border-radius: 16rpx; box-sizing: border-box; }
+  .header-box .team-data-box .total-num { font-size: 40rpx; line-height: 60rpx; }
+  .order-box .order-item { margin: 24rpx 32rpx; border-radius: 16rpx; }
+  .direct-box { gap: 24rpx; }
+  .header-box .direct-box .direct-item { flex: 1; min-width: 0; width: auto; }
+
 </style>

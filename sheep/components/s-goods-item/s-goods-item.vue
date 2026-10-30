@@ -3,9 +3,9 @@
     <view>
       <slot name="top"></slot>
     </view>
-    <view
+    <view :class="{ 'sales-design': salesDesign }"
       class="ss-order-card-warp ss-flex ss-col-stretch ss-row-between bg-white"
-      :style="[{ borderRadius: radius + 'rpx', marginBottom: marginBottom + 'rpx' }]"
+      :style="[{ borderRadius: salesDesign ? '16rpx' : radius + 'rpx', marginBottom: marginBottom + 'rpx' }]"
     >
       <view class="img-box ss-m-r-24">
         <image class="order-img" :src="sheep.$url.cdn(img)" mode="aspectFill"></image>
@@ -23,7 +23,7 @@
           <view class="ss-flex ss-col-center">
             <view
               class="price-text ss-flex ss-col-center"
-              :style="[{ color: priceColor }]"
+              :style="[{ color: salesDesign ? '#F94242' : priceColor }]"
               v-if="price && Number(price) > 0"
             >
               ￥{{ fen2yuan(price) }}
@@ -52,6 +52,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import sheep from '@/sheep';
   import { computed } from 'vue';
   import { fen2yuan } from '@/sheep/hooks/useGoods';
@@ -185,5 +187,14 @@
       color: $dark-9;
       margin-left: 8rpx;
     }
+  }
+
+  .ss-order-card-warp.sales-design {
+    padding: 24rpx; min-width: 0;
+    .box-right { min-width: 0; max-width: 100%; }
+    .title-text { color: #0F0F0F; line-height: 42rpx; }
+    .spec-text, .total-text { color: #929292; line-height: 36rpx; }
+    .img-box { flex-shrink: 0; border-radius: 8rpx; }
+    .tool-box { position: static; display: flex; justify-content: flex-end; margin-top: 8rpx; }
   }
 </style>

@@ -2,7 +2,7 @@
   <!-- 规格弹窗 -->
   <su-popup :show="show" round="10" @close="emits('close')">
     <!-- SKU 信息 -->
-    <view class="ss-modal-box bg-white ss-flex-col">
+    <view :class="{ 'sales-design': salesDesign }" class="ss-modal-box bg-white ss-flex-col">
       <view class="modal-header ss-flex ss-col-center">
         <view class="header-left ss-m-r-30">
           <image
@@ -93,6 +93,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import { computed, reactive, watch } from 'vue';
   import sheep from '@/sheep';
   import {
@@ -466,5 +468,21 @@
     &::before {
       content: '￥';
     }
+  }
+
+  .ss-modal-box.sales-design {
+    max-height: 85vh; border-radius: 30rpx 30rpx 0 0;
+    .modal-header { padding: 48rpx 32rpx 24rpx; }
+    .header-right { min-width: 0; height: auto; min-height: 160rpx; }
+    .price-text, .price-text::before { color: #F94242; }
+    .stock-text { color: #929292; }
+    .modal-content { padding: 0 32rpx; min-height: 0; }
+    .modal-content-scroll { max-height: 45vh; }
+    .spec-btn { min-height: 56rpx; height: auto; padding: 8rpx 24rpx; font-size: 28rpx; line-height: 42rpx; margin: 0 16rpx 16rpx 0; background: #F1F3F6; color: #464646; }
+    .disabled-btn { background: #E5E5E5; color: #BBBBBB; }
+    .modal-footer { padding: 16rpx 32rpx; }
+    .buy-box { gap: 24rpx; }
+    .add-btn { @include sales-secondary(84rpx, 32rpx); width: auto; flex: 1; min-width: 0; }
+    .buy-btn { @include sales-primary; width: auto; flex: 1; min-width: 0; }
   }
 </style>

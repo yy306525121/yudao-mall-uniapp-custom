@@ -1,6 +1,6 @@
 <!-- 售后申请 -->
 <template>
-  <s-layout title="申请售后">
+  <s-layout class="sales-page" title="申请售后">
     <!-- 售后商品 -->
     <view class="goods-box">
       <s-goods-item
@@ -231,14 +231,14 @@
   .item-title {
     font-size: 30rpx;
     font-weight: bold;
-    color: rgba(51, 51, 51, 1);
+    color: #0F0F0F;
     // margin-bottom: 20rpx;
   }
 
   // 售后项目
   .refund-item {
     background-color: #fff;
-    border-bottom: 1rpx solid #f5f5f5;
+    border-bottom: 1rpx solid #F1F3F6;
     padding: 30rpx;
 
     &:last-child {
@@ -257,7 +257,7 @@
         height: 200rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #333;
+        color: #0F0F0F;
       }
     }
 
@@ -299,7 +299,7 @@
       border-radius: 38rpx;
       font-size: 28rpx;
       font-weight: 400;
-      color: rgba(51, 51, 51, 1);
+      color: #0F0F0F;
     }
   }
 
@@ -339,7 +339,7 @@
 
     .success-title {
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
       font-size: 32rpx;
     }
 
@@ -350,4 +350,23 @@
       border-radius: 35rpx;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.foot_box .sub-btn, .success-box .success-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+.foot_box .contcat-btn, .modal-foot .close-btn { @include sales-secondary; width: auto; }
+
+  // New Era V2.0 page presentation.
+  .goods-box, .refund-item, .describe-box { @include sales-record; }
+  .describe-content { background: #F8FBFF; border-radius: 16rpx; padding: 24rpx; box-sizing: border-box; }
+  .foot_box { padding: 16rpx 32rpx; box-sizing: border-box; gap: 24rpx; }
+  .modal-box { max-width: calc(100vw - 64rpx); border-radius: 16rpx; }
+
 </style>

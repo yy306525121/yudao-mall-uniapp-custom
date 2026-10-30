@@ -1,6 +1,6 @@
 <!-- 充值记录 -->
 <template>
-  <s-layout class="widthdraw-log-wrap" title="充值记录">
+  <s-layout class="sales-page widthdraw-log-wrap" title="充值记录">
     <!-- 记录卡片 -->
     <view class="wallet-log-box ss-p-b-30">
       <view class="log-list" v-for="item in state.pagination.list" :key="item">
@@ -118,7 +118,7 @@
       .title {
         font-size: 28rpx;
         font-weight: 500;
-        color: $dark-3;
+        color: #0F0F0F;
       }
 
       .num {
@@ -140,7 +140,7 @@
         width: 180rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #666666;
+        color: #464646;
       }
 
       .status-text {
@@ -156,12 +156,25 @@
     }
   }
   .warning-color {
-    color: #faad14;
+    color: #FD8211;
   }
   .danger-color {
-    color: #ff4d4f;
+    color: #F94242;
   }
   .success-color {
     color: #67c23a;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .log-list { @include sales-record; }
+  .log-list .head { min-height: 88rpx; height: auto; flex-wrap: wrap; gap: 16rpx; }
+  .log-list .num { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+  .log-list .item { min-height: 88rpx; height: auto; }
+
 </style>

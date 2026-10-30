@@ -1,6 +1,6 @@
 <!-- 我的商品收藏 -->
 <template>
-  <s-layout title="商品收藏">
+  <s-layout class="sales-page" title="商品收藏">
     <view class="cart-box ss-flex ss-flex-col ss-row-between">
       <!-- 头部 -->
       <view class="cart-header ss-flex ss-col-center ss-row-between ss-p-x-30">
@@ -49,7 +49,7 @@
               :title="item.spuName"
               :img="item.picUrl"
               :price="item.price"
-              priceColor="#FF3000"
+              priceColor="#F94242"
               :titleWidth="400"
               @tap="
                 sheep.$router.go('/pages/goods/index', {
@@ -195,7 +195,7 @@
   .cart-box {
     .cart-header {
       height: 70rpx;
-      background-color: #f6f6f6;
+      background-color: #F1F3F6;
       width: 100%;
       position: fixed;
       left: 0;
@@ -230,4 +230,18 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .cart-box .cart-header { min-height: 88rpx; height: auto; padding: 16rpx 32rpx; box-sizing: border-box; }
+  .cart-box .cart-content { padding: 0 32rpx; box-sizing: border-box; }
+  .cart-box .goods-box { border-radius: 16rpx; margin-bottom: 24rpx; overflow: hidden; }
+  .cart-box .cart-footer { min-height: 116rpx; height: auto; padding: 16rpx 32rpx; box-sizing: border-box; }
+  .cart-box .cart-footer .pay-btn { @include sales-primary(56rpx, 28rpx); }
+
 </style>

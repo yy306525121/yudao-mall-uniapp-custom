@@ -1,6 +1,6 @@
 <!-- 自定义导航栏 -->
 <template>
-  <view class="uni-navbar" :class="{ 'uni-dark': dark }">
+  <view class="uni-navbar" :class="{ 'sales-design': salesDesign,  'uni-dark': dark }">
     <view
       :class="{
         'uni-navbar--fixed': fixed,
@@ -90,6 +90,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import sheep from '@/sheep';
   import { onLoad } from '@dcloudio/uni-app';
   import { showMenuTools, closeMenuTools } from '@/sheep/hooks/useModal';
@@ -479,5 +481,10 @@
 
   // 暗主题配置
   .uni-dark {
+  }
+
+  .uni-navbar.sales-design {
+    .uni-navbar__header-container-inner { font-weight: 600; line-height: 54rpx; }
+    .icon-box { box-shadow: none; background: #FFFFFF; border: 1rpx solid #E5E5E5; }
   }
 </style>

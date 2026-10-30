@@ -1,8 +1,8 @@
 <!-- 分销中心  -->
 <template>
   <s-layout
-    navbar="inner"
-    class="index-wrap"
+    navbar="normal"
+    class="sales-page index-wrap"
     title="分销中心"
     :bgStyle="bgStyle"
     :onShareAppMessage="shareInfo"
@@ -54,4 +54,10 @@
   :deep(.page-main) {
     background-size: 100% 100% !important;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
 </style>

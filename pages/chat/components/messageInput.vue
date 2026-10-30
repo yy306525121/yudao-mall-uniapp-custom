@@ -107,4 +107,13 @@
       margin-left: 11rpx;
     }
   }
+
+  // New Era V2.0 page presentation.
+.send-wrap .send-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  .send-wrap { padding: 16rpx 32rpx; gap: 16rpx; box-sizing: border-box; }
+  .send-wrap .left { min-width: 0; background: #F1F3F6; }
+  .send-wrap .send-btn { flex-shrink: 0; margin-left: 0; }
+  .send-wrap .send-btn.disabled { background: #E5E5E5; color: #929292; }
+
 </style>

@@ -1,6 +1,6 @@
 <!-- 文章展示 -->
 <template>
-  <s-layout :bgStyle="{ color: '#FFF' }" :title="state.title" class="set-wrap">
+  <s-layout :bgStyle="{ color: '#FFF' }" :title="state.title" class="sales-page set-wrap">
     <view class="ss-p-30 richtext"><mp-html :content="state.content"></mp-html></view>
   </s-layout>
 </template>
@@ -51,4 +51,14 @@
       display: block;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .richtext { margin: 24rpx 32rpx; padding: 24rpx; background: #FFFFFF; border-radius: 16rpx; box-sizing: border-box; }
+
 </style>

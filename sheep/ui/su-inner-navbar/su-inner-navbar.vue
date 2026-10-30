@@ -15,7 +15,7 @@
     <!-- 
       :class="[{ 'border-bottom': !props.opacity && props.bg != 'bg-none' }]"
      -->
-    <view class="ui-navbar-box">
+    <view :class="{ 'sales-design': salesDesign }" class="ui-navbar-box">
       <view
         class="ui-bar"
         :class="[{
@@ -47,6 +47,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 标题栏 - 基础组件navbar
    *
@@ -365,5 +367,9 @@
       z-index: 1;
       pointer-events: none;
     }
+  }
+
+  .ui-navbar-box.sales-design {
+    .navbar-title { font-size: 36rpx; line-height: 54rpx; font-weight: 600; }
   }
 </style>

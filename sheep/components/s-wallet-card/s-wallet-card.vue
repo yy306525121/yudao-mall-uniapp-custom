@@ -1,6 +1,6 @@
 <!-- 装修用户组件：用户资产 -->
 <template>
-	<view class="ss-wallet-menu-wrap ss-flex ss-col-center" :style="[bgStyle, { marginLeft: `${data.space}px` }]">
+	<view :class="{ 'sales-design': salesDesign }" class="ss-wallet-menu-wrap ss-flex ss-col-center" :style="[bgStyle, { marginLeft: `${data.space}px` }]">
 		<view class="menu-item ss-flex-1 ss-flex-col ss-row-center ss-col-center"
 			@tap="sheep.$router.go('/pages/user/wallet/money')">
 			<view class="value-box ss-flex ss-col-bottom">
@@ -37,6 +37,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
 	/**
 	 * 装修组件 - 订单菜单组
 	 */
@@ -115,5 +117,11 @@
 			}
 		}
 	}
+
+  .ss-wallet-menu-wrap.sales-design {
+    .menu-item { min-width: 0; }
+    .value-text { font-size: 40rpx; line-height: 60rpx; color: #0F0F0F; }
+    .menu-title, .unit-text { color: #929292; font-size: 24rpx; line-height: 36rpx; }
+  }
 </style>
 

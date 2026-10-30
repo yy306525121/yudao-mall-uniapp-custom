@@ -1,6 +1,6 @@
 <!-- 商品评论的分页 -->
 <template>
-  <s-layout title="全部评论">
+  <s-layout class="sales-page" title="全部评论">
     <su-tabs
       :list="state.type"
       :scrollable="false"
@@ -114,19 +114,19 @@
     .nickname {
       font-size: 26rpx;
       font-weight: 500;
-      color: #999999;
+      color: #929292;
     }
 
     .create-time {
       font-size: 24rpx;
       font-weight: 500;
-      color: #c4c4c4;
+      color: #BBBBBB;
     }
 
     .content-title {
       font-size: 26rpx;
       font-weight: 400;
-      color: #666666;
+      color: #464646;
       line-height: 42rpx;
     }
 
@@ -137,13 +137,13 @@
 
     .cicon-info-o {
       font-size: 26rpx;
-      color: #c4c4c4;
+      color: #BBBBBB;
     }
 
     .foot-title {
       font-size: 24rpx;
       font-weight: 500;
-      color: #999999;
+      color: #929292;
     }
   }
 
@@ -151,18 +151,33 @@
     width: 100%;
     height: 120rpx;
     background: #fff;
-    border-top: 2rpx solid #eee;
+    border-top: 2rpx solid #E5E5E5;
   }
 
   .tab-btn {
     width: 130rpx;
     height: 62rpx;
-    background: #eeeeee;
+    background: #E5E5E5;
     border-radius: 31rpx;
     font-size: 28rpx;
     font-weight: 400;
-    color: #999999;
+    color: #929292;
     border: 1px solid #e5e5e5;
     margin-right: 10rpx;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.tab-btn { @include sales-secondary; width: auto; }
+
+  // New Era V2.0 page presentation.
+  .list-item { @include sales-record; }
+  .list-item .content-title { font-size: 28rpx; line-height: 42rpx; }
+  .list-item .content-img { max-width: 100%; border-radius: 8rpx; }
+
 </style>

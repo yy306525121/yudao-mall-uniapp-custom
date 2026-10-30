@@ -11,7 +11,7 @@
       border
       :labelStyle="{ fontWeight: 'bold' }"
     >
-      <view class="bg-white form-box ss-p-x-30">
+      <view class="bg-white form-box sales-inset">
         <uni-forms-item name="name" label="收货人" class="form-item">
           <uni-easyinput
             v-model="state.model.name"
@@ -67,7 +67,7 @@
           />
         </uni-forms-item>
       </view>
-      <view class="ss-m-y-20 bg-white ss-p-x-30 ss-flex ss-row-between ss-col-center default-box">
+      <view class="ss-m-y-20 bg-white sales-inset ss-flex ss-row-between ss-col-center default-box">
         <view class="default-box-title"> 设为默认地址 </view>
         <su-switch style="transform: scale(0.8)" v-model="state.model.defaultStatus" />
       </view>
@@ -243,20 +243,20 @@
   :deep() {
     .uni-forms-item__label .label-text {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: #0F0F0F !important;
       line-height: normal !important;
     }
 
     .uni-easyinput__content-input {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: #0F0F0F !important;
       line-height: normal !important;
       padding-left: 0 !important;
     }
 
     .uni-easyinput__content-textarea {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: #0F0F0F !important;
       line-height: normal !important;
       margin-top: 8rpx !important;
     }
@@ -270,7 +270,7 @@
     }
 
     .is-disabled {
-      color: #333333;
+      color: #0F0F0F;
     }
   }
 
@@ -281,7 +281,7 @@
 
     .default-box-title {
       font-size: 28rpx;
-      color: #333333;
+      color: #0F0F0F;
       line-height: normal;
     }
   }
@@ -302,4 +302,13 @@
       background: var(--ui-BG);
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .form-box { @include sales-card; margin: 24rpx 32rpx; }
+  .default-box { margin: 24rpx 32rpx; padding: 0 24rpx; width: auto; border-radius: 16rpx; }
+  .footer-box { padding: 16rpx 32rpx; box-sizing: border-box;
+    .save-btn { @include sales-primary; width: 100%; }
+    .cancel-btn { @include sales-secondary(84rpx, 32rpx); width: 100%; }
+  }
+  :deep(.uni-forms-item__error) { color: #F94242; font-size: 24rpx; line-height: 36rpx; }
+
 </style>

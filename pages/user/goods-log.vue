@@ -1,6 +1,6 @@
 <!-- 商品浏览记录  -->
 <template>
-  <s-layout :bgStyle="{ color: '#f2f2f2' }" title="我的足迹">
+  <s-layout class="sales-page" :bgStyle="{ color: '#f2f2f2' }" title="我的足迹">
     <view class="cart-box ss-flex ss-flex-col ss-row-between">
       <!-- 头部 -->
       <view class="cart-header ss-flex ss-col-center ss-row-between ss-p-x-30">
@@ -53,7 +53,7 @@
               :img="item.picUrl"
               :price="item.price"
               :skuText="item.introduction"
-              priceColor="#FF3000"
+              priceColor="#F94242"
               :titleWidth="400"
               @tap="
                 sheep.$router.go('/pages/goods/index', {
@@ -230,7 +230,7 @@
   .cart-box {
     .cart-header {
       height: 70rpx;
-      background-color: #f6f6f6;
+      background-color: #F1F3F6;
       width: 100%;
       position: fixed;
       left: 0;
@@ -286,7 +286,7 @@
     .title-text {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
     }
 
     .params-box {
@@ -296,13 +296,27 @@
         border-radius: 2rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #666666;
+        color: #464646;
       }
     }
 
     .price-text {
-      color: $red;
+      color: #F94242;
       font-family: OPPOSANS;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .cart-box .cart-header { min-height: 88rpx; height: auto; padding: 16rpx 32rpx; box-sizing: border-box; }
+  .cart-box .cart-content { padding: 0 32rpx; box-sizing: border-box; }
+  .cart-box .goods-box { border-radius: 16rpx; margin-bottom: 24rpx; overflow: hidden; }
+  .cart-box .cart-footer { min-height: 116rpx; height: auto; padding: 16rpx 32rpx; box-sizing: border-box; }
+  .cart-box .cart-footer .pay-btn { @include sales-primary(56rpx, 28rpx); }
+
 </style>

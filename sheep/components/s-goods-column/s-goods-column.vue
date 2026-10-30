@@ -1,6 +1,6 @@
 <!-- 页面 -->
 <template>
-  <view class="ss-goods-wrap">
+  <view :class="{ 'sales-design': salesDesign }" class="ss-goods-wrap">
     <!-- xs卡片：横向紧凑型，一行放两个，图片左内容右边  -->
     <view
       v-if="size === 'xs'"
@@ -19,7 +19,7 @@
         <view
           v-if="goodsFields.title?.show || goodsFields.name?.show"
           class="xs-goods-title ss-line-1"
-          :style="[{ color: titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
+          :style="[{ color: salesDesign ? '#0F0F0F' : titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
         >
           {{ data.title || data.name }}
         </view>
@@ -37,7 +37,7 @@
         <view
           v-if="goodsFields.price?.show"
           class="xs-goods-price font-OPPOSANS"
-          :style="[{ color: goodsFields.price.color }]"
+          :style="[{ color: salesDesign ? '#F94242' : goodsFields.price.color }]"
         >
           <!-- 活动价格 -->
           <view
@@ -82,7 +82,7 @@
       <view
         v-if="goodsFields.title?.show || goodsFields.name?.show || goodsFields.price?.show"
         class="sm-goods-content"
-        :style="[{ color: titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
+        :style="[{ color: salesDesign ? '#0F0F0F' : titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
       >
         <view
           v-if="goodsFields.title?.show || goodsFields.name?.show"
@@ -104,7 +104,7 @@
         <view
           v-if="goodsFields.price?.show"
           class="sm-goods-price font-OPPOSANS"
-          :style="[{ color: goodsFields.price.color }]"
+          :style="[{ color: salesDesign ? '#F94242' : goodsFields.price.color }]"
         >
           <!-- 活动价格 -->
           <view
@@ -160,14 +160,14 @@
         <view
           v-if="goodsFields.title?.show || goodsFields.name?.show"
           class="md-goods-title ss-line-1"
-          :style="[{ color: titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
+          :style="[{ color: salesDesign ? '#0F0F0F' : titleColor, width: titleWidth ? titleWidth + 'rpx' : '' }]"
         >
           {{ data.title || data.name }}
         </view>
         <view
           v-if="goodsFields.subtitle?.show || goodsFields.introduction?.show"
           class="md-goods-subtitle ss-m-t-16 ss-line-1"
-          :style="[{ color: subTitleColor, background: subTitleBackground }]"
+          :style="[{ color: salesDesign ? '#929292' : subTitleColor, background: salesDesign ? '#F8FBFF' : subTitleBackground }]"
         >
           {{ data.subtitle || data.introduction }}
         </view>
@@ -197,7 +197,7 @@
           <view
             v-if="goodsFields.price?.show"
             class="md-goods-price ss-m-t-16 font-OPPOSANS ss-m-r-10"
-            :style="[{ color: goodsFields.price.color }]"
+            :style="[{ color: salesDesign ? '#F94242' : goodsFields.price.color }]"
           >
             <!-- 活动价格 -->
             <view
@@ -274,14 +274,14 @@
           <view
             v-if="goodsFields.title?.show || goodsFields.name?.show"
             class="lg-goods-title ss-line-2"
-            :style="[{ color: titleColor }]"
+            :style="[{ color: salesDesign ? '#0F0F0F' : titleColor }]"
           >
             {{ data.title || data.name }}
           </view>
           <view
             v-if="goodsFields.subtitle?.show || goodsFields.introduction?.show"
             class="lg-goods-subtitle ss-m-t-10 ss-line-1"
-            :style="[{ color: subTitleColor, background: subTitleBackground }]"
+            :style="[{ color: salesDesign ? '#929292' : subTitleColor, background: salesDesign ? '#F8FBFF' : subTitleBackground }]"
           >
             {{ data.subtitle || data.introduction }}
           </view>
@@ -306,7 +306,7 @@
             </view>
           </view>
           <view v-if="goodsFields.price?.show" class="ss-flex ss-col-bottom font-OPPOSANS">
-            <view class="sl-goods-price ss-m-r-12" :style="[{ color: goodsFields.price.color }]">
+            <view class="sl-goods-price ss-m-r-12" :style="[{ color: salesDesign ? '#F94242' : goodsFields.price.color }]">
               <!-- 活动价格 -->
               <view
                 class="ss-flex"
@@ -373,14 +373,14 @@
           <view
             v-if="goodsFields.title?.show || goodsFields.name?.show"
             class="sl-goods-title ss-line-1"
-            :style="[{ color: titleColor }]"
+            :style="[{ color: salesDesign ? '#0F0F0F' : titleColor }]"
           >
             {{ data.title || data.name }}
           </view>
           <view
             v-if="goodsFields.subtitle?.show || goodsFields.introduction?.show"
             class="sl-goods-subtitle ss-m-t-16"
-            :style="[{ color: subTitleColor, background: subTitleBackground }]"
+            :style="[{ color: salesDesign ? '#929292' : subTitleColor, background: salesDesign ? '#F8FBFF' : subTitleBackground }]"
           >
             {{ data.subtitle || data.introduction }}
           </view>
@@ -409,7 +409,7 @@
             </view>
           </view>
           <view v-if="goodsFields.price?.show" class="ss-flex ss-col-bottom font-OPPOSANS">
-            <view class="sl-goods-price ss-m-r-12" :style="[{ color: goodsFields.price.color }]">
+            <view class="sl-goods-price ss-m-r-12" :style="[{ color: salesDesign ? '#F94242' : goodsFields.price.color }]">
               <!-- 活动价格 -->
               <view
                 class="ss-flex"
@@ -464,6 +464,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 商品卡片
    *
@@ -619,6 +621,7 @@
 
   // 组件样式
   const elStyles = computed(() => {
+    if (salesDesign.value) return { background: '#FFFFFF', borderRadius: '16rpx', overflow: 'hidden' };
     return {
       background: props.background,
       'border-top-left-radius': props.topRadius + 'px',
@@ -1022,5 +1025,15 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .ss-goods-wrap.sales-design {
+    min-width: 0;
+    .xs-goods-title, .sm-goods-title, .md-goods-title, .lg-goods-title, .sl-goods-title {
+      max-width: 100%; line-height: 42rpx; font-size: 28rpx;
+      white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    }
+    .md-goods-content, .sl-goods-content, .lg-goods-content { min-width: 0; padding: 24rpx; box-sizing: border-box; }
+    .md-goods-price, .sl-goods-price { font-size: 40rpx; line-height: 60rpx; font-weight: 600; }
   }
 </style>

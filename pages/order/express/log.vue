@@ -1,6 +1,6 @@
 <!-- 物流追踪 -->
 <template>
-  <s-layout title="物流追踪">
+  <s-layout class="sales-page" title="物流追踪">
     <view class="log-wrap">
       <!-- 商品信息 -->
       <view class="log-card ss-flex ss-m-20 ss-r-10" v-if="goodsImages.length > 0">
@@ -153,7 +153,7 @@
   }
 
   .log-card {
-    border-top: 2rpx solid rgba(#dfdfdf, 0.5);
+    border-top: 2rpx solid rgba(#E5E5E5, 0.5);
     padding: 20rpx;
     background: #fff;
     margin-bottom: 20rpx;
@@ -168,10 +168,10 @@
       font-size: 28rpx;
       font-weight: 500;
       width: 490rpx;
-      color: #333333;
+      color: #0F0F0F;
 
       .warning-color {
-        color: #999;
+        color: #929292;
       }
     }
   }
@@ -188,7 +188,7 @@
       height: inherit;
 
       .cicon-title {
-        color: #ccc;
+        color: #BBBBBB;
         font-size: 40rpx;
       }
 
@@ -198,7 +198,7 @@
       }
 
       .info-color {
-        color: #ccc;
+        color: #BBBBBB;
         font-size: 40rpx;
       }
 
@@ -213,13 +213,13 @@
       .log-msg-title {
         font-size: 28rpx;
         font-weight: bold;
-        color: #333333;
+        color: #0F0F0F;
       }
 
       .log-msg-desc {
         font-size: 24rpx;
         font-weight: 400;
-        color: #333333;
+        color: #0F0F0F;
         line-height: 36rpx;
       }
 
@@ -230,4 +230,17 @@
       }
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+  .log-card, .log-content { @include sales-record; }
+  .log-card-msg { min-width: 0; flex: 1; }
+  .log-msg-title { line-height: 42rpx; }
+  .log-msg-desc, .log-msg-date { line-height: 36rpx; }
+
 </style>

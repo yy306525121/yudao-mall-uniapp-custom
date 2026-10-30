@@ -1,7 +1,7 @@
 <template>
   <view
     class="page-app"
-    :class="['theme-' + sys?.mode, 'main-' + sys?.theme, 'font-' + sys?.fontSize]"
+    :class="['theme-' + sys?.mode, 'main-' + sys?.theme, 'font-' + sys?.fontSize, { 'sales-design': salesDesign }]"
   >
     <view class="page-main" :style="[bgMain]">
       <!-- 顶部导航栏-情况1：默认通用顶部导航栏 -->
@@ -9,10 +9,10 @@
         v-if="navbar === 'normal'"
         :title="title"
         statusBar
-        :color="color"
+        :color="salesDesign ? '#0F0F0F' : color"
         :tools="tools"
         :opacityBgUi="opacityBgUi"
-        :backgroundColor="navbarBackgroundColor"
+        :backgroundColor="salesDesign ? '#FFFFFF' : navbarBackgroundColor"
         @search="(e) => emits('search', e)"
         :defaultSearch="defaultSearch"
       />
@@ -61,12 +61,16 @@
   /**
    * 模板组件 - 提供页面公共组件，属性，方法
    */
-  import { computed, onMounted } from 'vue';
+  import { computed, onMounted, provide } from 'vue';
   import sheep from '@/sheep';
   import { isEmpty } from '@/sheep/helper/lodash';
   // #ifdef MP-WEIXIN
   import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app';
   // #endif
+
+  import { SALES_DESIGN_KEY, useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
+  provide(SALES_DESIGN_KEY, salesDesign);
 
   const props = defineProps({
     title: {
@@ -161,6 +165,7 @@
 
   // 背景1
   const bgMain = computed(() => {
+    if (salesDesign.value) return { background: '#F1F3F6' };
     if (navbarMode.value === 'inner') {
       return {
         background: `${props.bgStyle.backgroundColor || props.bgStyle.color} url(${sheep.$url.cdn(
@@ -173,6 +178,7 @@
 
   // 背景2
   const bgBody = computed(() => {
+    if (salesDesign.value) return { background: '#F1F3F6' };
     if (navbarMode.value === 'normal') {
       return {
         background: `${props.bgStyle.backgroundColor || props.bgStyle.color} url(${sheep.$url.cdn(
@@ -266,5 +272,8 @@
         z-index: 0;
       }
     }
+  }
+  .page-app.sales-design {
+    @include sales-theme;
   }
 </style>

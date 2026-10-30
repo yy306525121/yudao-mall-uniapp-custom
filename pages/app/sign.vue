@@ -1,6 +1,6 @@
 <!-- 签到界面  -->
 <template>
-  <s-layout title="签到有礼">
+  <s-layout class="sales-page" title="签到有礼">
     <s-empty v-if="state.loading" icon="/static/data-empty.png" text="签到活动还未开始" />
     <view v-if="state.loading" />
     <view class="sign-wrap" v-else-if="!state.loading">
@@ -164,7 +164,7 @@
 
 <style lang="scss" scoped>
   .header-box {
-    border-top: 2rpx solid rgba(#dfdfdf, 0.5);
+    border-top: 2rpx solid rgba(#E5E5E5, 0.5);
   }
 
   // 日历
@@ -178,14 +178,14 @@
 
       .sign-everyday-title {
         font-size: 32rpx;
-        color: rgba(51, 51, 51, 1);
+        color: #0F0F0F;
         font-weight: 500;
       }
 
       .sign-num-box {
         font-size: 26rpx;
         font-weight: 500;
-        color: rgba(153, 153, 153, 1);
+        color: #929292;
 
         .sign-num {
           font-size: 30rpx;
@@ -205,7 +205,7 @@
         font-size: 30rpx;
         font-family: OPPOSANS;
         font-weight: 500;
-        color: #333333;
+        color: #0F0F0F;
         line-height: normal;
       }
     }
@@ -213,14 +213,14 @@
     .cicon-back {
       margin-top: 6rpx;
       font-size: 30rpx;
-      color: #c4c4c4;
+      color: #BBBBBB;
       line-height: normal;
     }
 
     .cicon-forward {
       margin-top: 6rpx;
       font-size: 30rpx;
-      color: #c4c4c4;
+      color: #BBBBBB;
       line-height: normal;
     }
 
@@ -229,7 +229,7 @@
       .week-item {
         font-size: 24rpx;
         font-weight: 500;
-        color: rgba(153, 153, 153, 1);
+        color: #929292;
         flex: 1;
       }
     }
@@ -244,7 +244,7 @@
         height: 80rpx;
         font-size: 26rpx;
         font-weight: 400;
-        color: rgba(51, 51, 51, 1);
+        color: #0F0F0F;
       }
     }
   }
@@ -274,7 +274,7 @@
     font-size: 24rpx;
     font-family: OPPOSANS;
     font-weight: 500;
-    color: #333333;
+    color: #0F0F0F;
     line-height: normal;
   }
 
@@ -316,7 +316,7 @@
     // height: 590rpx;
     background: linear-gradient(177deg, #ff6000 0%, #fe832a 100%);
     // background: linear-gradient(177deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-    border-radius: 10rpx;
+    border-radius: 16rpx;
 
     .cicon-check-round {
       font-size: 70rpx;
@@ -353,7 +353,7 @@
       .subtitle {
         font-size: 26rpx;
         font-weight: 500;
-        color: #999999;
+        color: #929292;
       }
 
       .cancel-btn {
@@ -386,14 +386,14 @@
   .activity-title {
     font-size: 32rpx;
     font-weight: 500;
-    color: #333333;
+    color: #0F0F0F;
     line-height: normal;
   }
 
   .activity-des {
     font-size: 26rpx;
     font-weight: 500;
-    color: #666666;
+    color: #464646;
     line-height: 40rpx;
   }
 
@@ -449,4 +449,26 @@
   .on {
     color: #f4b409;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.sign-box .sign-btn { @include sales-primary; max-width: 100%; }
+
+  .calendar { margin: 24rpx 32rpx; border-radius: 16rpx; padding: 24rpx; box-sizing: border-box; }
+  .calendar .sign-everyday { height: auto; min-height: 88rpx; padding: 16rpx 0; border: 0; flex-wrap: wrap; gap: 16rpx; }
+  .calendar .sign-num-box .sign-num { color: #0B56D3; }
+  .calendar .myDateTable .dateCell { width: calc(100% / 7); }
+  .sign-box { padding: 24rpx 32rpx; box-sizing: border-box; }
+  .sign-box .sign-btn, .sign-box .already-btn { width: 100%; }
+  .sign-box .already-btn { @include sales-primary; background: #E5E5E5; color: #929292; }
+  .model-box { max-width: calc(100vw - 64rpx); border-radius: 16rpx; background: #0B56D3; }
+  .model-box .model-bg { max-width: 100%; }
+  .model-box .model-bg .cancel-btn { @include sales-secondary; width: 200rpx; min-width: 0; }
+  .model-box .model-bg .confirm-btn { @include sales-primary(56rpx, 28rpx); width: 200rpx; min-width: 0; }
+
 </style>

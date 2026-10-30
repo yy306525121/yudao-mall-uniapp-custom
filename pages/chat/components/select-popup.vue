@@ -148,4 +148,10 @@
       }
     }
   }
+
+  .select-popup { max-height: 80vh; background: #F1F3F6; }
+  .select-popup .title { padding: 24rpx 32rpx; height: auto; min-height: 88rpx; line-height: 50rpx; }
+  .select-popup .scroll-box { height: 55vh; }
+  .select-popup .item { margin: 24rpx 32rpx; border-radius: 16rpx; }
+
 </style>

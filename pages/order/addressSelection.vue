@@ -1,6 +1,6 @@
 <!-- 下单界面，收货地址 or 自提门店的选择组件 -->
 <template>
-  <view class="allAddress" :style="state.isPickUp ? '' : 'padding-top:10rpx;'">
+  <view :class="{ 'sales-design': salesDesign }" class="allAddress" :style="state.isPickUp ? '' : 'padding-top:10rpx;'">
     <view class="nav flex flex-wrap">
       <view
         class="item font-color"
@@ -74,6 +74,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   import { computed } from 'vue';
   import sheep from '@/sheep';
   import { isEmpty } from '@/sheep/helper/lodash';
@@ -278,5 +280,17 @@
   .allAddress .line {
     width: 100%;
     margin: 0 auto;
+  }
+
+  .allAddress.sales-design {
+    width: auto; margin: 24rpx 32rpx; padding-bottom: 0; border-radius: 16rpx; overflow: hidden;
+    background: #E9F0FF;
+    .font-color { color: #0B56D3 !important; }
+    .nav { width: 100%; }
+    .address { padding: 24rpx; }
+    .address .addressCon { flex: 1; min-width: 0; width: auto; padding-right: 24rpx; color: #464646; }
+    .address .addressCon .name { color: #0F0F0F; line-height: 48rpx; }
+    .line2 { width: auto; flex: 1; }
+    .line { display: none; }
   }
 </style>

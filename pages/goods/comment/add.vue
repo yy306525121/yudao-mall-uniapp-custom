@@ -1,6 +1,6 @@
 <!-- 评价  -->
 <template>
-  <s-layout title="评价">
+  <s-layout class="sales-page" title="评价">
     <view>
       <view v-for="(item, index) in state.orderInfo.items" :key="item.id">
         <view>
@@ -187,4 +187,20 @@
     color: rgba(#fff, 0.9);
     margin-bottom: 20rpx;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.post-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .goods-card, .form-item { @include sales-record; }
+  .form-item .star-box { padding: 16rpx 0; height: auto; min-height: 88rpx; flex-wrap: wrap; }
+  .area-box { width: 100%; padding: 24rpx; box-sizing: border-box; background: #F8FBFF; border-radius: 16rpx; }
+  .post-btn { width: calc(100% - 64rpx); margin: 24rpx 32rpx; }
+
 </style>

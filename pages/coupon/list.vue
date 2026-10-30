@@ -1,6 +1,6 @@
 <!-- 优惠券中心  -->
 <template>
-  <s-layout :bgStyle="{ color: '#f2f2f2' }" title="优惠券">
+  <s-layout class="sales-page" :bgStyle="{ color: '#f2f2f2' }" title="优惠券">
     <su-sticky bgColor="#fff">
       <su-tabs
         :list="tabMaps"
@@ -215,8 +215,21 @@
   }
 
   .disabled-btn {
-    background: #cccccc;
-    background-color: #cccccc !important;
+    background: #BBBBBB;
+    background-color: #BBBBBB !important;
     color: #fff !important;
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.card-btn { @include sales-primary(48rpx, 24rpx); min-width: 88rpx; }
+
+  // New Era V2.0 page presentation.
+  .border-btn, .disabled-btn { background: #E5E5E5; background-color: #E5E5E5 !important; color: #929292 !important; }
+
 </style>

@@ -4,9 +4,9 @@
     @tap="click"
     :style="[
       {
-        borderRadius: radius + 'px',
-        background: elBackground,
-        height: height + 'px',
+        borderRadius: salesDesign ? '1000rpx' : radius + 'px',
+        background: salesDesign ? '#F1F3F6' : elBackground,
+        height: salesDesign ? '72rpx' : height + 'px',
         width: width,
       },
     ]"
@@ -20,16 +20,16 @@
     >
       <view
         class="search-icon _icon-search"
-        :style="{ color: fontColor, margin: '0 10rpx' }"
+        :style="{ color: salesDesign ? '#929292' : fontColor, margin: '0 10rpx' }"
       ></view>
-      <view class="search-input ss-line-1" :style="{ color: fontColor }">
+      <view class="search-input ss-line-1" :style="{ color: salesDesign ? '#929292' : fontColor }">
         {{ placeholder }}
       </view>
       <!-- 右侧扫一扫图标 -->
       <view
         v-if="showScan"
         class="scan-icon _icon-scan"
-        :style="{ color: fontColor }"
+        :style="{ color: salesDesign ? '#929292' : fontColor }"
         @tap.stop="onScan"
         style="margin-left: auto"
       >
@@ -38,7 +38,8 @@
     <uni-search-bar
       v-if="!navbar"
       class="ss-flex-1"
-      :radius="data.borderRadius"
+      :radius="salesDesign ? 18 : data.borderRadius"
+      :bgColor="salesDesign ? '#F1F3F6' : '#F8F8F8'"
       :placeholder="data.placeholder"
       cancelButton="none"
       clearButton="none"
@@ -49,7 +50,7 @@
       <view v-for="(item, index) in data.hotKeywords" :key="index">
         <view
           class="ss-m-r-16"
-          :style="[{ color: data.textColor }]"
+          :style="[{ color: salesDesign ? '#0B56D3' : data.textColor }]"
           @tap.stop="sheep.$router.go('/pages/goods/list', { keyword: item })"
         >
           {{ item }}
@@ -61,7 +62,7 @@
         class="ss-reset-button keyword-btn"
         v-for="(item, index) in data.hotKeywords"
         :key="index"
-        :style="[{ color: data.textColor, marginRight: '10rpx' }]"
+        :style="[{ color: salesDesign ? '#0B56D3' : data.textColor, marginRight: '10rpx' }]"
       >
         {{ item }}
       </button>
@@ -70,6 +71,8 @@
 </template>
 
 <script setup>
+  import { useSalesDesign } from '@/sheep/hooks/useSalesDesign';
+  const salesDesign = useSalesDesign();
   /**
    * 基础组件 - 搜索栏
    *

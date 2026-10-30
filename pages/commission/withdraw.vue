@@ -1,6 +1,6 @@
 <!-- 分佣提现 -->
 <template>
-  <s-layout title="申请提现" class="withdraw-wrap" navbar="inner">
+  <s-layout title="申请提现" class="sales-page withdraw-wrap" navbar="inner">
     <view class="page-bg"></view>
     <view
       class="wallet-num-box ss-flex ss-col-center ss-row-between"
@@ -386,11 +386,11 @@
         .empty-text {
           font-size: 28rpx;
           font-weight: 400;
-          color: $dark-9;
+          color: #929292;
         }
 
         .cicon-forward {
-          color: $dark-9;
+          color: #929292;
         }
       }
 
@@ -401,7 +401,7 @@
 
         .unit {
           font-size: 48rpx;
-          color: #333;
+          color: #0F0F0F;
           font-weight: 500;
         }
 
@@ -427,7 +427,7 @@
     .bind-box {
       .placeholder-text {
         font-size: 26rpx;
-        color: $dark-9;
+        color: #929292;
       }
 
       .add-btn {
@@ -448,7 +448,7 @@
 
       .unit {
         font-size: 48rpx;
-        color: #333;
+        color: #0F0F0F;
         font-weight: 500;
       }
 
@@ -482,14 +482,32 @@
 
     .title {
       font-weight: 500;
-      color: #333333;
+      color: #0F0F0F;
       font-size: 30rpx;
     }
 
     .draw-list {
       font-size: 24rpx;
-      color: #999999;
+      color: #929292;
       line-height: 46rpx;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  // New Era V2.0 page presentation.
+.draw-card .save-btn { @include sales-primary; max-width: 100%; }
+
+  // New Era V2.0 page presentation.
+  .wallet-num-box { padding-left: 32rpx; padding-right: 32rpx; background: linear-gradient(90deg, #0D64F5, #0B56D3); }
+  .draw-card { width: auto; margin: -48rpx 32rpx 24rpx; padding: 24rpx; border-radius: 16rpx; }
+  .draw-card .input-box, .draw-card .bank-box .input-box { width: 100%; box-sizing: border-box; }
+  .draw-card .save-btn { width: 100%; }
+  .draw-notice { margin: 24rpx 32rpx; line-height: 42rpx; }
+  .draw-card .bind-box .add-btn { @include sales-secondary(48rpx, 24rpx); min-width: 88rpx; width: auto; }
+
 </style>

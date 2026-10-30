@@ -18,7 +18,7 @@
         <radio-group @change="onTapPay">
           <label class="pay-type-item" v-for="item in state.payMethods" :key="item.title">
             <view
-              class="pay-item ss-flex ss-col-center ss-row-between ss-p-x-30 border-bottom"
+              class="pay-item ss-flex ss-col-center ss-row-between sales-inset border-bottom"
               :class="{ 'disabled-pay-item': item.disabled }"
             >
               <view class="ss-flex ss-col-center">
@@ -227,7 +227,7 @@
       padding: 60rpx 20rpx 40rpx;
 
       .money-text {
-        color: $red;
+        color: #F94242;
         font-size: 46rpx;
         font-weight: bold;
         font-family: OPPOSANS;
@@ -258,7 +258,7 @@
       .pay-title {
         font-size: 26rpx;
         font-weight: 500;
-        color: #333333;
+        color: #0F0F0F;
       }
 
       .pay-tip {
@@ -271,7 +271,7 @@
       }
       .disabled-pay-item {
         .pay-title {
-          color: #999999;
+          color: #929292;
         }
       }
 
@@ -291,15 +291,26 @@
     }
     .disabled-btn {
       background: #e5e5e5;
-      color: #999999;
+      color: #929292;
     }
 
     .past-due-btn {
       width: 710rpx;
       height: 80rpx;
       border-radius: 40rpx;
-      background-color: #999;
+      background-color: #929292;
       color: #fff;
     }
   }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+  .ss-modal-box { margin: 24rpx 32rpx; border-radius: 30rpx; overflow: hidden;
+    .modal-header { padding: 48rpx 24rpx 24rpx; }
+    .modal-header .money-text { color: #F94242; font-size: 40rpx; line-height: 60rpx; }
+    .modal-content .pay-item { min-height: 96rpx; height: auto; padding-top: 16rpx; padding-bottom: 16rpx; }
+    .modal-content .pay-title { color: #0F0F0F; font-size: 28rpx; }
+    .modal-footer { padding: 0 24rpx; }
+    .save-btn { @include sales-primary; width: 100%; }
+    .past-due-btn { @include sales-primary; width: 100%; background: #E5E5E5; color: #929292; }
+  }
+
 </style>

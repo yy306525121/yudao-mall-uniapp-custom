@@ -1,6 +1,6 @@
 <!-- 分销 - 佣金明细 -->
 <template>
-  <s-layout class="wallet-wrap" title="佣金">
+  <s-layout class="sales-page wallet-wrap" title="佣金">
     <!-- 钱包卡片 -->
     <view class="header-box ss-flex ss-row-center ss-col-center">
       <view class="card-box ui-BG-Main ui-Shadow-Main">
@@ -484,12 +484,12 @@
   .filter-box {
     height: 120rpx;
     padding: 0 30rpx;
-    background-color: $bg-page;
+    background-color: #F1F3F6;
 
     .total-box {
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: #929292;
     }
 
     .date-btn {
@@ -499,11 +499,11 @@
       padding: 0 20rpx;
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: #464646;
 
       .ss-seldate-icon {
         font-size: 50rpx;
-        color: $dark-9;
+        color: #929292;
       }
     }
   }
@@ -544,7 +544,7 @@
       width: 70rpx;
       height: 70rpx;
       border-radius: 50%;
-      background: $gray-c;
+      background: #BBBBBB;
     }
 
     .list-content {
@@ -554,12 +554,12 @@
 
       .title {
         font-size: 28rpx;
-        color: $dark-3;
+        color: #0F0F0F;
         width: 400rpx;
       }
 
       .time {
-        color: $gray-c;
+        color: #BBBBBB;
         font-size: 22rpx;
       }
     }
@@ -574,7 +574,7 @@
       }
 
       .minus {
-        color: $dark-3;
+        color: #0F0F0F;
       }
     }
 
@@ -593,7 +593,7 @@
   .model-title {
     font-size: 36rpx;
     font-weight: bold;
-    color: #333333;
+    color: #0F0F0F;
   }
 
   .model-subtitle {
@@ -616,7 +616,7 @@
 
     .unit {
       font-size: 48rpx;
-      color: #333;
+      color: #0F0F0F;
       font-weight: 500;
       line-height: normal;
     }
@@ -640,4 +640,27 @@
       color: #fa3534;
     }
   }
+
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+
+  .header-box { padding: 24rpx 32rpx; background: #F1F3F6; }
+  .header-box .card-box { padding: 32rpx; border-radius: 30rpx; }
+  .header-box .card-box::after { background: none; }
+  .header-box .card-box .money-num { font-size: 44rpx; line-height: 66rpx; font-weight: 600; }
+  .header-box .card-box .topup-btn, .header-box .card-box .withdraw-btn { @include sales-secondary; color: #0B56D3; border-color: #FFFFFF; }
+  .header-box .card-box .balance-btn { @include sales-secondary; background: transparent; color: #FFFFFF; border-color: #FFFFFF; }
+  .filter-box { min-height: 114rpx; height: auto; padding: 16rpx 32rpx; box-sizing: border-box; gap: 16rpx; flex-wrap: wrap; }
+  .wallet-list { padding: 24rpx 32rpx; }
+  .wallet-list .list-content { min-width: 0; }
+  .wallet-list .money, .wallet-list .add { color: #F94242; font-size: 32rpx; line-height: 48rpx; }
+
+
+  .confirm-btn { @include sales-primary; max-width: 100%; }
+  .model-title { font-size: 34rpx; line-height: 50rpx; }
+  .model-subtitle { font-size: 28rpx; line-height: 42rpx; color: #929292; }
+
 </style>

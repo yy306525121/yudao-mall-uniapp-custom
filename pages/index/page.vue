@@ -1,6 +1,6 @@
 <!-- 自定义页面：支持装修 -->
 <template>
-  <s-layout
+  <s-layout class="sales-page"
     :title="state.name"
     navbar="custom"
     :bgStyle="state.page"
@@ -8,7 +8,7 @@
     onShareAppMessage
     showLeftButton
   >
-    <s-block v-for="(item, index) in state.components" :key="index" :styles="item.property.style">
+    <s-block v-for="(item, index) in state.components" :key="index" :type="item.id" :styles="item.property.style">
       <s-block-item :type="item.id" :data="item.property" :styles="item.property.style" />
     </s-block>
   </s-layout>
@@ -48,4 +48,10 @@
   onPageScroll(() => {});
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+  // New Era V2.0 page presentation.
+  .sales-page { font-size: 28rpx; line-height: 42rpx; }
+  .sales-price { color: #F94242; }
+  .sales-inset { padding-left: 32rpx; padding-right: 32rpx; box-sizing: border-box; }
+
+</style>
