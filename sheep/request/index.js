@@ -1,3 +1,5 @@
+import { fieldCrypto } from './field-crypto/config.js';
+import { prepareFieldRequest } from './field-crypto/index.js';
 /**
  * Shopro-request
  * @description api模块管理，loading配置，请求拦截，错误处理
@@ -70,11 +72,18 @@ const http = new Request({
  * @description 请求拦截器
  */
 http.interceptors.request.use(
-  (config) => {
+  async (config) => {
     // 自定义处理【auth 授权】：必须登录的接口，则跳出 AuthModal 登录弹窗
     if (config.custom.auth && !$store('user').isLogin) {
       showAuthModal();
       return Promise.reject();
+    }
+
+    try {
+      await prepareFieldRequest(config, config.custom.fieldCrypto, fieldCrypto);
+    } catch (error) {
+      if (config.custom.showError) uni.showToast({ title: '请求字段加密失败，请检查加密配置', icon: 'none' });
+      return Promise.reject(error);
     }
 
     // 自定义处理【loading 加载中】：如果需要显示 loading，则显示 loading
@@ -110,7 +119,16 @@ http.interceptors.request.use(
  * @description 响应拦截器
  */
 http.interceptors.response.use(
-  (response) => {
+  async (response) => {
+    if (response.config.custom.fieldCrypto?.response?.length) {
+      try {
+        response.data = await fieldCrypto.decryptFields(response.data, response.config.custom.fieldCrypto.response);
+      } catch (error) {
+        response.config.custom.showLoading && closeLoading();
+        if (response.config.custom.showError) uni.showToast({ title: '响应字段解密失败，请检查加密配置', icon: 'none' });
+        return Promise.reject(error);
+      }
+    }
     // 约定：如果是 /auth/ 下的 URL 地址，并且返回了 accessToken 说明是登录相关的接口，则自动设置登陆令牌
     if (response.config.url.indexOf('/member/auth/') >= 0 && response.data?.data?.accessToken) {
       $store('user').setToken(response.data.data.accessToken, response.data.data.refreshToken);
@@ -197,9 +215,9 @@ http.interceptors.response.use(
           errorMessage = 'HTTP 版本不受支持';
           break;
       }
-      if (error.errMsg.includes('timeout')) errorMessage = '请求超时';
+      if ((error.errMsg || error.message || '').includes('timeout')) errorMessage = '请求超时';
       // #ifdef H5
-      if (error.errMsg.includes('Network'))
+      if ((error.errMsg || error.message || '').includes('Network'))
         errorMessage = window.navigator.onLine ? '服务器异常' : '请检查您的网络连接';
       // #endif
     }
