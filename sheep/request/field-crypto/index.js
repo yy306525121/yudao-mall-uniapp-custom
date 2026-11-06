@@ -23,13 +23,20 @@ const concat = (...arrays) => Uint8Array.from(arrays.flatMap((v) => Array.from(v
 
 // 不使用 Math.random；小程序通过平台安全随机数 API 获取熵。
 async function randomBytes(length) {
-  if (globalThis.crypto?.getRandomValues)
+  if (typeof globalThis !== 'undefined' && typeof globalThis.crypto?.getRandomValues === 'function')
     return globalThis.crypto.getRandomValues(new Uint8Array(length));
-  if (typeof wx !== 'undefined' && wx.getRandomValues) {
+  if (typeof wx !== 'undefined' && typeof wx.getRandomValues === 'function') {
     return new Promise((resolve, reject) =>
       wx.getRandomValues({
         length,
-        success: (res) => resolve(new Uint8Array(res.randomValues)),
+        success: (res) => {
+          const values = res?.randomValues;
+          if (!(values instanceof ArrayBuffer) || values.byteLength !== length) {
+            reject(new Error('平台安全随机数返回长度或格式无效'));
+            return;
+          }
+          resolve(new Uint8Array(values));
+        },
         fail: reject,
       }),
     );
@@ -156,14 +163,22 @@ export function createFieldCrypto(settings) {
         data.length !== Math.ceil(privateKey.n.bitLength() / 8)
       )
         throw new Error('RSA 密钥或单块密文长度无效');
-      // Feed platform entropy for forge's private-key blinding, including on mini programs.
-      forge.random.collect(binary(await randomBytes(1024)));
-      plain = bytes(
-        privateKey.decrypt(binary(data), 'RSA-OAEP', {
-          md: forge.md.sha256.create(),
-          mgf1: { md: forge.md.sha256.create() },
-        }),
-      );
+      // Forge reseeds on every blinding draw, including rejected candidates.
+      // Refill asynchronously and retry only when the guarded entropy source is exhausted.
+      while (true) {
+        forge.random.collect(binary(await randomBytes(1024)));
+        try {
+          plain = bytes(
+            privateKey.decrypt(binary(data), 'RSA-OAEP', {
+              md: forge.md.sha256.create(),
+              mgf1: { md: forge.md.sha256.create() },
+            }),
+          );
+          break;
+        } catch (error) {
+          if (error.code !== 'FORGE_SECURE_RANDOM_REQUIRED') throw error;
+        }
+      }
     } else {
       if (!/^[0-9a-f]{64}$/i.test(key) || data.length < 97 || data[0] !== 4)
         throw new Error('SM2 密钥或密文格式无效');
